@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link href="assets/css/index.css" rel="stylesheet" />
+    <link href="assets/css/mypage.css" rel="stylesheet" />
+
+    <script src="../js/mypage.js" type="module"></script>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <section>
+        <div id="profile" class="profile"></div>
+        <div class="buttons">
+          <a id="logout" class="logout">로그아웃</a>
+          <a id="leave" class="leave">회원 탈퇴</a>
+        </div>
+      </section>
+
+      <section>
+        <h1>⭐️ 즐겨찾기</h1>
+        <p>나만의 여행 계획을 세워보세요.</p>
+        <div id="favorites" class="favorites"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p id="ssafy">SSAFY</p>
+      <p id="contactus">ContactUs</p>
+    </footer>
+    <div class="modal-background" id="modalBackground">
+      <div class="modal" id="modal"></div>
+    </div>
+  </body>
+</html>
+

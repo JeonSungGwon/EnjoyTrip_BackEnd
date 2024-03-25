@@ -18,7 +18,7 @@ public class FavoriteDaoImpl implements FavoriteDao{
 		try {
 			con = DBUtil.getConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("insert into favorit (memberNo, contentId, addr, title, image) ");
+			sql.append("insert into favorite(memberNo, contentId, addr, title, image) ");
 			sql.append("values (?, ?, ?, ?, ?) ");
 			pstmt = con.prepareStatement(sql.toString());
 			int index = 0;

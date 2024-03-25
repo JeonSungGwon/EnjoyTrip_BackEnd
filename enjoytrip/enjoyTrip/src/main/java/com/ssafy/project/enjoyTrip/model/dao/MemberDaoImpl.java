@@ -33,9 +33,27 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public Member selectMember(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+	public Member selectMember(Member member) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = DBUtil.getConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select * ");
+			sql.append("from member ");
+			sql.append("where id = ? and password = ? ");
+			pstmt = con.prepareStatement(sql.toString());
+			int index = 0;
+			pstmt.setString(++index, member.getId());
+			pstmt.setString(++index, member.getPassword());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return new Member(rs.getInt("no"), rs.getString("id"), rs.getString("password"), rs.getString("nickname"), rs.getString("profileImage"));
+			}
+			return null;
+		} finally {
+			DBUtil.close(con,pstmt);
+		}
 	}
 
 	@Override

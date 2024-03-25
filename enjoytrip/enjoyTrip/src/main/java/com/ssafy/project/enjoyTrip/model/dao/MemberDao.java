@@ -4,6 +4,6 @@ import com.ssafy.project.enjoyTrip.model.Member;
 
 public interface MemberDao {
 	int insertMember(Member member) throws Exception;
-	Member selectMember(Member member);
-	int updateMember(Member member);
+	Member selectMember(Member member) throws Exception;
+	int updateMember(Member member) throws Exception;
 }

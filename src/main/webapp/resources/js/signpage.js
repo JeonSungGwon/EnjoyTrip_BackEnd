@@ -1,4 +1,4 @@
-function signPage(app) {
+const signPage = (app) => {
     // if (localStorage.getItem("token")) navigateTo("../pages/mainPage.html");
 
     const signinDiv = app.getElementById("signin");

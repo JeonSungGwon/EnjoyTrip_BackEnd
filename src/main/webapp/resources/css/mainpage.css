@@ -19,17 +19,23 @@ main section:first-child {
   width: 80%;
   height: 100%;
   display: flex;
+  gap: 1rem;
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
-.search select {
-  padding: 8px 12px;
+.selects {
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+	gap: 1%;
+}
+
+.selects select {
   outline: none;
-  font-size: 16px;
-  margin: 0 10px;
+  font-size: 1rem;
 }
 
 .searchbar {

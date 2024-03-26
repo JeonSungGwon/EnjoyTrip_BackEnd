@@ -3,7 +3,7 @@ package com.ssafy.project.enjoyTrip.model;
 public class Favorite {
 	private int no;
 	private int memberNo;
-	private int contentId;
+	private String contentId;
 	private String addr;
 	private String title;
 	private String image;
@@ -13,7 +13,7 @@ public class Favorite {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Favorite(int no, int memberNo, int contentId, String addr, String title, String image) {
+	public Favorite(int no, int memberNo, String contentId, String addr, String title, String image) {
 		this.no = no;
 		this.memberNo = memberNo;
 		this.contentId = contentId;
@@ -38,11 +38,11 @@ public class Favorite {
 		this.memberNo = memberNo;
 	}
 
-	public int getContentId() {
+	public String getContentId() {
 		return contentId;
 	}
 
-	public void setContentId(int contentId) {
+	public void setContentId(String contentId) {
 		this.contentId = contentId;
 	}
 

@@ -16,7 +16,7 @@
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7725f9c52c11588d81633bf7a9f1723d&libraries=clusterer"></script>
 
-    <script src="resources/js/components.js" type="module" defer></script>
+    <script src="resources/js/mainpage.js" type="module" defer></script>
     <title>Enjoy Trip!</title>
   </head>
   <body>
@@ -27,7 +27,7 @@
         <form class="search" id="search" action="post">
           <div class="selects" id="selects">
             <span>어디로 여행 가시나요?</span>
-            <select name="city" id="city">
+            <select name="location" id="location">
               <option value="">시, 도를 선택하세요.</option>
               <option value="1">서울</option>
               <option value="2">인천</option>
@@ -60,14 +60,7 @@
               class="search-input"
               placeholder="여행지 이름, 위치 등 검색어를 입력해 주세요."
             />
-            <button type="submit">
-              <!--  
-             	<img
-                height="30px"
-                width="30px"
-                src="../../assets/images/search.svg"
-              />
-              -->
+            <button type="submit" id="searchButton">
               <span class="material-symbols-outlined">search</span>
             </button>
           </div>

@@ -31,30 +31,3 @@ export const search = async (location, subLocation, keyword) => {
       	return [];
 	}
 }
-
-// 카카오맵
-// kakao 맵 초기화
-export const initializeKakaoMap = () => {
-  const mapContainer = document.getElementById("map"); // 지도를 표시할 div
-  const mapOption = {
-    center: new kakao.maps.LatLng(36.355453, 127.297992), // 초기 지도의 중심좌표
-    level: 3, // 지도의 확대 레벨
-  };
-  return new kakao.maps.Map(mapContainer, mapOption);
-}
-
-// 인포윈도우를 표시하는 클로저를 만드는 함수
-export function makeOverListener(map, marker, infowindow) {
-  return function () {
-    infowindow.open(map, marker);
-  };
-}
-
-// 인포윈도우를 닫는 클로저를 만드는 함수
-export function makeOutListener(infowindow) {
-  return function () {
-    infowindow.close();
-  };
-}
-
-

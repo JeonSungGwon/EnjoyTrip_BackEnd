@@ -110,7 +110,7 @@ header {
 
 .card:hover .hover {
   display: flex;
-  padding: 2rem;
+  padding: 0.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -1,13 +1,11 @@
-import { navigateTo } from "./service.js";
-
-export function Card(id, image, title, addr, width) {
+export const Card = (id, image, title, addr, width) => {
   return `
     <div style="width: ${width}; background-image: url(${image});" id="card${id}" class="card" >
         <div class="hover">
-            <p style="font-weight: bold; font-size: 18px">${title}</p>
+            <p style="font-weight: bold; font-size: 1.2rem">${title}</p>
             <div style="display: flex;">
                 <span class="material-symbols-outlined">location_on</span>
-                <p style="font-size: 16px;">${addr}</p>
+                <p style="font-size: 1rem;">${addr}</p>
             </div>
         </div>
         <img src="resources/images/empty_star.svg" alt="star" id="star${id}" />
@@ -30,3 +28,5 @@ export function Modal(html) {
 
   document.getElementsByTagName("body")[0].innerHTML += modal;
 }
+
+

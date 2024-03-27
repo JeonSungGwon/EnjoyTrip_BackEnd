@@ -69,7 +69,9 @@
 
       <section id="map" class="map"></section>
 
-      <section id="result" class="result"></section>
+      <section id="result" class="result">
+      	<h2 style="margin-bottom: 5rem">어디로 가고 싶으신가요? 😉</h2>
+      </section>
     </main>
 
     <%@ include file="components/footer.jsp" %>

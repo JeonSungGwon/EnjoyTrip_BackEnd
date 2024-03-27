@@ -9,11 +9,11 @@ const mainPage = (app) => {
 	// 검색 결과 부분
 	const resultDiv = app.getElementById("result");
 	
-	subLocationSelect.innerHTML = '<option value="">불러오는 중..</option>';
 	// 지역 대분류 선택시 소분류 API 호출
 	locationSelect.addEventListener("change", async () => {
+		subLocationSelect.innerHTML = "<option value="">불러오는 중..</option>";
 		const subLocations = await fetchSubLocationOptions(locationSelect.value);
-		subLocationSelect.innerHTML = '<option value="">시, 군, 구를 선택하세요.</option>';
+		subLocationSelect.innerHTML = "";
       	subLocations.forEach((location) => {
         	const option = document.createElement("option");
 	    	option.value = location.code;
@@ -30,7 +30,7 @@ const mainPage = (app) => {
 		// setSearchMap();
 		
 		console.log(results);
-		if(results.length === 0) {
+		if(results.length) {
 			resultDiv.innerHTML = `<h2 style="margin-bottom: 50px">😢 검색 결과가 없습니다.</h2>`;
 		} else {
 			resultDiv.innerHTML = `
@@ -44,7 +44,7 @@ const mainPage = (app) => {
 	
 	const setCardDiv = (results) => {
 		const cardsDiv = app.getElementById("cards");
-		results.map((result, idx) => {
+		results.map((result) => {
 			html += Card(
 	          result.contentid,
     	      result.firstimage

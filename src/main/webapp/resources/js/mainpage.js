@@ -1,5 +1,5 @@
 import { Card, setCardWidthHeight } from "./components.js";
-import { initializeKakaoMap, setMarkers } from "./kakao.js";
+import { initializeKakaoMap, makeMarker, setMarkers } from "./kakao.js";
 import { fetchSubLocationOptions, search } from "./service.js";
 
 const mainPage = (app) => {	
@@ -50,8 +50,10 @@ const mainPage = (app) => {
 		        <div id="cards" class="cards"></div>
 		    `;
 		    
-		    setMarkers(clusterer, markers, results, map);
-
+		   	let temp = setMarkers(clusterer, markers, results, map);
+			markers = temp[0];
+			clusterer = temp[1];
+			
 			let html = "";
 			results.map((result) => {
 				carsdDiv = app.getElementById("cards");
@@ -83,7 +85,7 @@ const mainPage = (app) => {
 				});
 				
 				clickStar(results);
-				clickCard();
+				// clickCard();
 			}
 	});
 	// searchButton addEvent end
@@ -93,70 +95,30 @@ const mainPage = (app) => {
 			let starIcon = app.getElementById(`star${results[i].contentid}`);
       		starIcon.addEventListener("click", (e) => {
         		const storeId = e.target.id.replace("star", "");
-        		const clickedStore = results.find((store) => store.contentid === storeId);
+        		const target = results.find((result) => result.contentid === storeId);
 
-        		// 이미지 교체
-        		if (starIcon.getAttribute("src") === "../../assets/images/full_star.svg") {
-          			starIcon.setAttribute("src", "../../assets/images/empty_star.svg");
-          			const clickedMarker = this.markers.find((marker) => marker.getTitle() === clickedStore.title);
-
-		          	if (clickedMarker !== undefined) {
-			            // 기존의 마커를 제거합니다.
-			            clusterer.removeMarker(clickedMarker); // 클러스터에서도 제거합니다.
-			            markers = this.markers.filter((marker) => marker !== clickedMarker);
-			
-			            // 새로운 마커를 생성하여 클러스터에 추가합니다.
-			            const markerPosition = new kakao.maps.LatLng(
-							parseFloat(results[i].mapy),
-			              	parseFloat(results[i].mapx)
-			            );
-			            const newMarker = new kakao.maps.Marker({
-							position: markerPosition,
-							title: results[i].title,
-			            });
-			            markers.push(newMarker);
-			            clusterer.addMarker(newMarker);
-			          }
-		        } else {
-					starIcon.setAttribute("src", "../../assets/images/full_star.svg");
-					
-					// 클릭된 스타에 해당하는 마커를 찾습니다.
-			        const clickedMarker = markers.find((marker) => marker.getTitle() === clickedStore.title);
-			        if (clickedMarker !== undefined) {
-						// 기존의 마커를 제거합니다.
-			            clusterer.removeMarker(clickedMarker); // 클러스터에서도 제거합니다.
-			            markers = this.markers.filter((marker) => marker !== clickedMarker);
-			
-			            // 새로운 마커를 생성하여 클러스터에 추가합니다.
-			            const markerPosition = new kakao.maps.LatLng(
-							parseFloat(results[i].mapy),
-							parseFloat(results[i].mapx)
-						);
-			
-			            const newMarker = new kakao.maps.Marker({
-							position: markerPosition,
-							title: results[i].title,
-							image: new kakao.maps.MarkerImage(
-								"https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-								new kakao.maps.Size(25, 40),
-			                { offset: new kakao.maps.Point(13, 37) }
-			              ),
-			            });
-			            this.markers.push(newMarker);
-			            this.clusterer.addMarker(newMarker);
-			
-			            this.addToLocalStorage(clickedStore);
-			       }
-        }
-
-        //로컬 스토리지 콘솔 찍기
-        let favoriteStores =
-          JSON.parse(localStorage.getItem("favoriteStores")) || [];
-        console.log("즐겨찾기 로컬 스토리지 정보 : ", favoriteStores);
-      });
-    }
-	}
-	
+        		// 즐겨찾기 삭제
+        		if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
+          			starIcon.setAttribute("src", "resources/images/empty_star.svg");
+          			makeMarker(markers, target, clusterer, null);
+		        }
+		        // 즐겨찾기 추가 
+		        else {
+					let memberNo = app.getElementsByClassName("profile")[0].id.split("profile")[1];
+					console.log(target);
+				 	window.location.href = "favorite?action=add&memberNo=" + `${memberNo}` + "&contentId=" + `${target.contentid}` + "&addr=" + `${target.addr1 ? target.addr1 : target.addr2}` 
+				 		+ "&title=" + `${target.title}` + "&image=" + `${target.firstimage}`;
+					starIcon.setAttribute("src", "resources/images/full_star.svg");
+					let markerImage = new kakao.maps.MarkerImage(
+											"https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+											new kakao.maps.Size(25, 40),
+						                	{ offset: new kakao.maps.Point(13, 37)}	
+						                );
+					makeMarker(markers, target, clusterer, markerImage);
+        		}
+      		});
+    	}
+	}	
 }
 
 mainPage(document);

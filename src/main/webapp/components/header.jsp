@@ -2,12 +2,12 @@
     pageEncoding="UTF-8" %>
 <header>
 	<img class="logo" id="logo" src="resources/images/logo.svg" />
-    <div id="profileBtn" class="profile" style="cursor: pointer">
+    <div id="profile${member.no}" class="profile" style="cursor: pointer">
         <img class="profile-image" src="${member.profileImage}" />
         <p>${member.nickname}</p>
     </div>
 	<script>
-		document.getElementById("profileBtn").addEventListener("click", ()=> {
+		document.getElementsByTagName("div")[0].addEventListener("click", ()=> {
 			console.log("go mypage!");
 		});
 		

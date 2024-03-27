@@ -71,4 +71,34 @@ export function setMarkers(clusterer, markers, stores, map) {
     );
    
 	map.setCenter(center);
+	
+	return [markers, clusterer];
+}
+
+export function makeMarker(markers, target, clusterer, markerImage) {
+	console.log(target);
+	const clickedMarker = markers.find((marker) => marker.getTitle() === target.title);
+	if (clickedMarker !== undefined) {	        
+		// 기존의 마커를 제거합니다.
+		clusterer.removeMarker(clickedMarker); // 클러스터에서도 제거합니다.
+		markers = markers.filter((marker) => marker !== clickedMarker);
+		
+		// 새로운 마커를 생성하여 클러스터에 추가합니다.
+		const markerPosition = new kakao.maps.LatLng(
+			parseFloat(target.mapy),
+		  	parseFloat(target.mapx)
+		);
+		
+		const newMarker = markerImage ? new kakao.maps.Marker({
+			position: markerPosition,
+			title: target.title,
+			image: markerImage
+		}) : new kakao.maps.Marker({
+			position: markerPosition,
+			title: target.title
+		});
+		
+		markers.push(newMarker);
+		clusterer.addMarker(newMarker);
+	}
 }

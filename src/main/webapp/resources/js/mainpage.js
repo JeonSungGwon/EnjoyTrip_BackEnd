@@ -1,4 +1,4 @@
-import { fetchSubLocationOptions, search } from "./service.js";
+import { fetchSubLocationOptions, initializeKakaoMap, search } from "./service.js";
 
 const mainPage = (app) => {	
 	const locationSelect = app.getElementById("location");
@@ -11,7 +11,7 @@ const mainPage = (app) => {
 	
 	// 지역 대분류 선택시 소분류 API 호출
 	locationSelect.addEventListener("change", async () => {
-		subLocationSelect.innerHTML = "<option value="">불러오는 중..</option>";
+		subLocationSelect.innerHTML = "<option value=\"\">불러오는 중..</option>";
 		const subLocations = await fetchSubLocationOptions(locationSelect.value);
 		subLocationSelect.innerHTML = "";
       	subLocations.forEach((location) => {
@@ -56,6 +56,15 @@ const mainPage = (app) => {
         );
 		})
 	}
+	
+	// 지도 관련
+	const map = initializeKakaoMap();
+	const clusterer = new kakao.maps.MarkerClusterer({
+      map: this.map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+      averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+      minLevel: 5, // 클러스터 할 최소 지도 레벨
+    });
+
 }
 
 mainPage(document);

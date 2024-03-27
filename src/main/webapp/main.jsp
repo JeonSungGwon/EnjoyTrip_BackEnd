@@ -76,5 +76,10 @@
     <%@ include file="components/modal.jsp" %>
   
   </body>
+  
+  <script>
+  
+  
+  </script>
 </html>
 

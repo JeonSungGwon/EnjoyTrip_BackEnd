@@ -29,23 +29,9 @@
             <span>어디로 여행 가시나요?</span>
             <select name="location" id="location">
               <option value="">시, 도를 선택하세요.</option>
-              <option value="1">서울</option>
-              <option value="2">인천</option>
-              <option value="3">대전</option>
-              <option value="4">대구</option>
-              <option value="5">광주</option>
-              <option value="6">부산</option>
-              <option value="7">울산</option>
-              <option value="8">세종</option>
-              <option value="31">경기</option>
-              <option value="32">강원</option>
-              <option value="33">충북</option>
-              <option value="34">충남</option>
-              <option value="35">경북</option>
-              <option value="36">경남</option>
-              <option value="37">전북</option>
-              <option value="38">전남</option>
-              <option value="39">제주</option>
+              <c:forEach var="sido" items="${sidoList}">
+            	<option value="${sido.code}">${sido.name}</option>
+          	  </c:forEach>
             </select>
             <select id="subLocation">
               <option value="">시, 군, 구를 선택하세요.</option>

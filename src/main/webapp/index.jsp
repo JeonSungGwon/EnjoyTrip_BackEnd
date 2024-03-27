@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,18 +15,30 @@
   </head>
 
   <body>
+  	<%
+  		boolean isNotMember = false;
+  		if(request.getAttribute("isNotMember") != null) {  			
+  			isNotMember = (boolean)request.getAttribute("isNotMember");
+  		}
+  		if(isNotMember == true) {
+  	%>
+  	<script>
+  		let flag = window.confirm("회원 정보가 없습니다! 회원가입으로 이동하시겠어요?");
+  		if(flag === true) window.location.href = "member?action=signup";
+  	</script>
+  	<% } %>
     <button type="button" class="logo_btn">
     	<img src="resources/images/logo.svg" alt="로고이미지" onclick="" />
     </button>
 
     <main id="signin" class="signin">
-	    <p class="title_text" id="title_text">
+    	<p class="title_text" id="title_text">
 	      바쁘고 지친 하루 하루, <br />
 	      아무런 걱정없이 <br />여행을 떠나보세요.
 	    </p>
 	    <div>
 			<form id="signinForm" method="post" action="member">
-				<input type="hidden" name="action" value="login" />
+				<input type="hidden" name="action" value="doLogin" />
 				<input
 				  id="id"
 				  name="id"
@@ -41,7 +53,7 @@
 				/>
 				<button type="submit">로그인</button>
 				<p>회원이 아니신가요?
-					<a href="member?action=signupForm">회원가입</a>
+					<a href="member?action=signup">회원가입</a>
 				</p>
 			</form>
 	    </div>

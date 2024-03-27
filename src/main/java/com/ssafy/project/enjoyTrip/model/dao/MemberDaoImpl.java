@@ -30,7 +30,7 @@ public class MemberDaoImpl implements MemberDao {
             int index = 0;
             pstmt.setString(++index, member.getId());
             pstmt.setString(++index, member.getPassword());
-            pstmt.setString(++index, member.getProfileImage());
+            pstmt.setString(++index, member.getNickname());
             return pstmt.executeUpdate();
         } finally {
             DBUtil.close(con,pstmt);

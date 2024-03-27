@@ -13,7 +13,6 @@
 
     <script type="module" src="resources/js/signpage.js" defer></script>
   </head>
-
   <body>
     <button type="button" class="logo_btn">
       <img src="resources/images/logo.svg" alt="로고이미지" onclick="" />
@@ -22,21 +21,23 @@
     <main id="signup" class="signup">
 	    <div>
 			<p>회원가입</p>
-			<form id="signupForm">
-				<input id="upName" class="up-name" type="text" placeholder="이름" />
+			<form id="signupForm"  method="post" action="member">
+				<input type="hidden" name="action" value="doSignup" />
+				<input id="nickName" name="nickName" type="text" placeholder="이름" />
 				<input
-				  id="upId"
-				  class="up-id"
+				  id="id"
+				  name="id"
 				  type="email"
 				  placeholder="아이디(이메일)"
 				/>
 				<input
-				  id="upPwd"
-				  class="up-pwd"
+				  id="password"
+				  name="password"
 				  type="password"
 				  placeholder="비밀번호"
 				/>
 				<button type="submit" id="signupBtn">회원가입</button>
+				<a href="member?action=login">로그인 하기</a>
 			</form>
 	    </div>
     </main>

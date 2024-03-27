@@ -23,14 +23,17 @@ public class MemberController extends HttpServlet{
         String action = req.getParameter("action");
         try {
             switch(action){
+            case "doLogin":
+                doLogin(req,resp);
+                break;
+            case "doSignup":
+                doSignup(req,resp);
+                break;
             case "login":
-                login(req,resp);
-                break;
+            	navigateToLoginPage(req, resp);
+            	break;
             case "signup":
-                signup(req,resp);
-                break;
-            case "signupForm":
-                signupForm(req,resp);
+            	navigateToSignupPage(req,resp);
                 break;
             }
         }catch(Exception e) {
@@ -38,31 +41,41 @@ public class MemberController extends HttpServlet{
         }
     }
 
-    private void signupForm(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    private void navigateToLoginPage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    	req.getRequestDispatcher("/index.jsp").forward(req, resp);
+	}
+
+	private void navigateToSignupPage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         req.getRequestDispatcher("/signup.jsp").forward(req, resp);
     }
 
-    private void signup(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    private void doSignup(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         Member member = new Member();
         member.setId(req.getParameter("id"));
         member.setPassword(req.getParameter("password"));
         member.setNickname(req.getParameter("nickName"));
 //        member.setProfileImage(req.getParameter("profileImage"));
         memberService.signup(member);
-        resp.sendRedirect(req.getContextPath() + "/signpage.jsp");
+
+        HttpSession session = req.getSession();
+        session.setAttribute("isNotMember", false);
+        resp.sendRedirect(req.getContextPath() + "/index.jsp");
     }
 
-    private void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    private void doLogin(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         Member member = new Member();
         member.setId(req.getParameter("id"));
         member.setPassword(req.getParameter("password"));
         Member findMember = memberService.login(member);
+        HttpSession session = req.getSession();
         if(findMember != null) {
-            HttpSession session = req.getSession();
             session.setAttribute("member", findMember);
-            resp.sendRedirect(req.getContextPath() + "/mainpage.jsp");
+            resp.sendRedirect(req.getContextPath() + "/main.jsp");
         }
-        
+        else {
+            req.setAttribute("isNotMember", true);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        }
     }
     
     

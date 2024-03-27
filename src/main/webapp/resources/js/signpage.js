@@ -9,26 +9,6 @@ const signPage = (app) => {
     const goSignupBtn = app.getElementById("goSignupBtn");
     const signupBtn = app.getElementById("signupBtn");
 
-    // '회원가입' 버튼 클릭 시 회원가입 섹션 보이기
-	goSignupBtn.addEventListener("click", () => {
-	  setSignupUI();
-	});
-	
-	signupBtn.addEventListener("click", () => {
-	  setSigninUI();
-	});
-	
-	const setSignupUI = () => {
-	    signinDiv.style.display = "none";
-	    signupDiv.style.display = "block";
-	    title.style.display = "none";
-  	}
-
-  	const setSigninUI = () => {
-	    signinDiv.style.display = "block";
-	    signupDiv.style.display = "none";
-	    title.style.display = "block";
-  	}
 }
 
 signPage(document);

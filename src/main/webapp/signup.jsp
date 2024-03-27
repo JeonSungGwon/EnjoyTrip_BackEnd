@@ -9,40 +9,34 @@
     <title>Enjoy Trip!</title>
     
     <link href="resources/css/index.css" rel="stylesheet" />
-    <link href="resources/css/login.css" rel="stylesheet" />
+    <link href="resources/css/signup.css" rel="stylesheet" />
 
     <script type="module" src="resources/js/signpage.js" defer></script>
   </head>
 
   <body>
     <button type="button" class="logo_btn">
-    	<img src="resources/images/logo.svg" alt="로고이미지" onclick="" />
+      <img src="resources/images/logo.svg" alt="로고이미지" onclick="" />
     </button>
 
-    <main id="signin" class="signin">
-	    <p class="title_text" id="title_text">
-	      바쁘고 지친 하루 하루, <br />
-	      아무런 걱정없이 <br />여행을 떠나보세요.
-	    </p>
+    <main id="signup" class="signup">
 	    <div>
-			<form id="signinForm" method="post" action="member">
-				<input type="hidden" name="action" value="login" />
+			<p>회원가입</p>
+			<form id="signupForm">
+				<input id="upName" class="up-name" type="text" placeholder="이름" />
 				<input
-				  id="id"
-				  name="id"
+				  id="upId"
+				  class="up-id"
 				  type="email"
 				  placeholder="아이디(이메일)"
 				/>
 				<input
-				  id="password"
-				  name="password"
+				  id="upPwd"
+				  class="up-pwd"
 				  type="password"
 				  placeholder="비밀번호"
 				/>
-				<button type="submit">로그인</button>
-				<p>회원이 아니신가요?
-					<a href="member?action=signupForm">회원가입</a>
-				</p>
+				<button type="submit" id="signupBtn">회원가입</button>
 			</form>
 	    </div>
     </main>

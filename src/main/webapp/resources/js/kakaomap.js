@@ -76,7 +76,6 @@ export function setSearchedMap(clusterer, markers, stores, map) {
 }
 
 export function changeMarker(markers, target, clusterer, markerImage) {
-	console.log(target);
 	const clickedMarker = markers.find((marker) => marker.getTitle() === target.title);
 	if (clickedMarker !== undefined) {
 		// 기존의 마커를 제거합니다.

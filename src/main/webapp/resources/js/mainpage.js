@@ -115,6 +115,22 @@ const mainPage = (app) => {
 				if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
 					starIcon.setAttribute("src", "resources/images/empty_star.svg");
 					[clusterer, markers] = changeMarker(markers, result, clusterer, null);
+					
+					$.ajax({
+						type: 'post',
+						url: `favorite?action=remove&contentId=${result.contentId}`,
+						dataType: 'json',
+						success: function(json) {
+							if(json.success) alert("즐겨찾기 삭제!");
+						},
+						error: function(xhr, status, error) {
+							//오류 발생 시 처리
+							//alert(error);
+						},
+						complete: function(data, textStatus) {
+							//작업 완료 후 처리
+						}
+					});
 				}
 				// 즐겨찾기 추가 
 				else {
@@ -135,9 +151,7 @@ const mainPage = (app) => {
 						data: favoriteValues,
 						dataType: 'json',
 						success: function(json) {
-							//정상 요청, 응답 시 처리 작업
-							console.log(json);
-							alert(json);
+							if(json.success) alert("즐겨찾기 추가!");
 						},
 						error: function(xhr, status, error) {
 							//오류 발생 시 처리

@@ -1,8 +1,10 @@
 package com.ssafy.project.enjoyTrip.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import com.google.gson.Gson;
 import com.ssafy.project.enjoyTrip.model.map.AttractionInfo;
 import com.ssafy.project.enjoyTrip.model.map.Gugun;
 import com.ssafy.project.enjoyTrip.model.map.Sido;
@@ -50,18 +52,38 @@ public class MapController extends HttpServlet{
 	private void getInfo(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		int sidoCode = Integer.parseInt(req.getParameter("sidoCode"));
 		int gugunCode = Integer.parseInt(req.getParameter("gugunCode"));
-		List<AttractionInfo> infoList = attractionInfoService.getAttractionInfo(sidoCode, gugunCode);
-		req.setAttribute("infoList", infoList);
+		String title = req.getParameter("title");
+		List<AttractionInfo> infoList = attractionInfoService.getAttractionInfo(sidoCode, gugunCode, title);
+		
+		resp.setContentType("application/json");
+	    resp.setCharacterEncoding("UTF-8");
+	    PrintWriter out = resp.getWriter();
+	    Gson gson = new Gson();
+	    String json = gson.toJson(infoList);
+	    out.print(json);
+	    out.flush();
+	    System.out.println(json);
 	}
 
 	private void getGugun(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		int sidoCode = Integer.parseInt(req.getParameter("sidoCode"));
-		List<Gugun> gugunList = gugunService.getGugun(sidoCode);
-		req.setAttribute("gugunList", gugunList);
+	    int sidoCode = Integer.parseInt(req.getParameter("sidoCode"));
+	    System.out.println(sidoCode);
+	    List<Gugun> gugunList = gugunService.getGugun(sidoCode);
+
+	    // 서버에서 받은 데이터를 JSON 형식으로 변환하여 응답
+	    resp.setContentType("application/json");
+	    resp.setCharacterEncoding("UTF-8");
+	    PrintWriter out = resp.getWriter();
+	    Gson gson = new Gson();
+	    String json = gson.toJson(gugunList);
+	    out.print(json);
+	    out.flush();
 	}
 
 	private void getSido(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		System.out.println("asdasd");
 		List<Sido> sidoList = sidoService.getSido();
+				
 		req.setAttribute("sidoList", sidoList);
 	}
 	

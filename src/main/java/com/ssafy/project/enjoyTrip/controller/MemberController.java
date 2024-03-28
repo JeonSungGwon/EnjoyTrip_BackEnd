@@ -1,8 +1,12 @@
 package com.ssafy.project.enjoyTrip.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.ssafy.project.enjoyTrip.model.Member;
+import com.ssafy.project.enjoyTrip.model.map.Sido;
+import com.ssafy.project.enjoyTrip.model.map.service.SidoService;
+import com.ssafy.project.enjoyTrip.model.map.service.SidoServiceImpl;
 import com.ssafy.project.enjoyTrip.model.service.MemberService;
 import com.ssafy.project.enjoyTrip.model.service.MemberServiceImpl;
 
@@ -17,7 +21,8 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/member")
 public class MemberController extends HttpServlet{
     MemberService memberService = MemberServiceImpl.getMemberService();
-
+    SidoService sidoService = SidoServiceImpl.getSidoService();
+    
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -69,8 +74,11 @@ public class MemberController extends HttpServlet{
         Member findMember = memberService.login(member);
         HttpSession session = req.getSession();
         if(findMember != null) {
+        	List<Sido> sidoList = sidoService.getSido();
+    		req.setAttribute("sidoList", sidoList);
             session.setAttribute("member", findMember);
-            resp.sendRedirect(req.getContextPath() + "/main.jsp");
+            req.getRequestDispatcher("/main.jsp").forward(req, resp);
+            //resp.sendRedirect(req.getContextPath() + "/main.jsp");
         }
         else {
             req.setAttribute("isNotMember", true);

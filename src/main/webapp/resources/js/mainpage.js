@@ -26,21 +26,38 @@ const mainPage = (app) => {
 	
 	// 지역 대분류 선택시 소분류 API 호출
 	locationSelect.addEventListener("change", async () => {
-		subLocationSelect.innerHTML = "<option value=\"\">불러오는 중..</option>";
-		const subLocations = await fetchSubLocationOptions(locationSelect.value);
-		subLocationSelect.innerHTML = "";
-      	subLocations.forEach((location) => {
-        	const option = document.createElement("option");
-	    	option.value = location.code;
-	    	option.textContent = location.name;
-	    	subLocationSelect.appendChild(option);
-	  	});
-	});
+    subLocationSelect.innerHTML = "<option value=\"\">불러오는 중..</option>";
+
+    try {
+        const response = await fetch('/enjoytrip_backend-master/map?action=gugun&sidoCode=' + locationSelect.value);
+        const gugunList = await response.json();
+
+        subLocationSelect.innerHTML = "";
+
+        gugunList.forEach((gugun) => {
+            const option = document.createElement("option");
+            option.value = gugun.gugunCode;
+            option.textContent = gugun.gugunName;
+            subLocationSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error fetching sub locations:', error);
+    }
+});
 	
 	// 검색~
 	searchButton.addEventListener("click", async (e) => {
 		e.preventDefault();
-		results = await search(locationSelect.value, subLocationSelect.value, keywordInput.value);
+		    try {
+	         const response = await fetch('/enjoytrip_backend-master/map?action=info&sidoCode=' + locationSelect.value + 
+	         								'&gugunCode=' + subLocationSelect.value + '&title=' + keywordInput.value);
+	         results = await response.json();
+	         console.log(results);
+	
+	  
+	    } catch (error) {
+	        console.error('Error fetching sub locations:', error);
+	    }
 		
 		if(results == null) {
 			resultDiv.innerHTML = `<h2 style="margin-bottom: 5rem">검색 결과가 없습니다. 😢</h2>`;
@@ -58,7 +75,7 @@ const mainPage = (app) => {
 			results.map((result) => {
 				carsdDiv = app.getElementById("cards");
 				html += Card(
-		          			result.contentid,
+		          			result.contentId,
 	    	      			result.firstimage ? result.firstimage : "",
 	          				result.title.split("(")[0],
 	          				result.addr1.split(" ")[0] + " " + result.addr1.split(" ")[1],
@@ -76,8 +93,8 @@ const mainPage = (app) => {
 			      		const clickedStore = results.find((store) => store.contentid === cardId);
 			      		if (clickedStore) {
 					        const position = new kakao.maps.LatLng(
-					          parseFloat(clickedStore.mapy),
-					          parseFloat(clickedStore.mapx)
+					          parseFloat(store.latitude),
+       						  parseFloat(store.longitude)
 					        );
 					        map.setCenter(position);
 				      	}
@@ -96,7 +113,7 @@ const mainPage = (app) => {
       		starIcon.addEventListener("click", (e) => {
         		const storeId = e.target.id.replace("star", "");
         		const target = results.find((result) => result.contentid === storeId);
-
+				
         		// 즐겨찾기 삭제
         		if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
           			starIcon.setAttribute("src", "resources/images/empty_star.svg");

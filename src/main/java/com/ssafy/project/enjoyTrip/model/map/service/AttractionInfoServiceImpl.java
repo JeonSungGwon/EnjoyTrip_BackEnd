@@ -20,8 +20,8 @@ public class AttractionInfoServiceImpl implements AttractionInfoService{
 	
 	
 	@Override
-	public List<AttractionInfo> getAttractionInfo(int sidoCode, int gugunCode) throws Exception {
-		return attractionInfoDao.selectAttractionInfo(sidoCode, gugunCode);
+	public List<AttractionInfo> getAttractionInfo(int sidoCode, int gugunCode, String title) throws Exception {
+		return attractionInfoDao.selectAttractionInfo(sidoCode, gugunCode, title);
 	}
 
 }

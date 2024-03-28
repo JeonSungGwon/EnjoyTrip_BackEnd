@@ -23,7 +23,7 @@ public class AttractionInfoDaoImpl implements AttractionInfoDao {
 	
 	
 	@Override
-	public List<AttractionInfo> selectAttractionInfo(int sidoCode1, int gugunCode1) throws Exception {
+	public List<AttractionInfo> selectAttractionInfo(int sidoCode1, int gugunCode1, String title1) throws Exception {
 		Connection con = null;
         PreparedStatement pstmt = null;
         List<AttractionInfo> list = new ArrayList<>();
@@ -32,10 +32,11 @@ public class AttractionInfoDaoImpl implements AttractionInfoDao {
             StringBuffer sql = new StringBuffer();
             sql.append("select * ");
             sql.append("from attraction_info ");
-            sql.append("where sido_code = ? and gugun_code = ?");
+            sql.append("WHERE sido_code = ? AND gugun_code = ? AND title LIKE ?;");
             pstmt = con.prepareStatement(sql.toString());
             pstmt.setInt(1, sidoCode1);
             pstmt.setInt(2, gugunCode1);
+            pstmt.setString(3, "%" + title1 + "%");
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
             	int contentId = rs.getInt("content_id");

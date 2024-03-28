@@ -33,11 +33,18 @@ public class MemberController extends HttpServlet {
 			case "doSignup":
 				doSignup(req, resp);
 				break;
+			case "doLogout":
+				doLogout(req,resp);
+				break;
+				 
 			case "updateProfile":
 				updateMember(req, resp);
 				break;
 			case "login":
 				navigateToLoginPage(req, resp);
+				break;
+			case "remove":
+				removeMember(req, resp);
 				break;
 			case "signup":
 				navigateToSignupPage(req, resp);
@@ -57,11 +64,25 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
+	private void removeMember(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+		int no = Integer.parseInt(req.getParameter("no"));
+		memberService.removeMember(no);
+		resp.sendRedirect(req.getContextPath()+"/index.jsp");
+	}
+
+	private void doLogout(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+		HttpSession session = req.getSession();
+		session.invalidate();
+		resp.sendRedirect(req.getContextPath()+"/index.jsp");
+	}
+
 	private void navigateToCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.getRequestDispatcher("/community.jsp").forward(req, resp);
 	}
 
 	private void navigateToHome(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		List<Sido> sidoList = sidoService.getSido();
+		req.setAttribute("sidoList", sidoList);
 		req.getRequestDispatcher("/main.jsp").forward(req, resp);
 	}
 

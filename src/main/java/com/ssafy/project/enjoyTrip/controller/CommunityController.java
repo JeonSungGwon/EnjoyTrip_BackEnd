@@ -50,7 +50,11 @@ public class CommunityController extends HttpServlet{
 		int id = Integer.parseInt(req.getParameter("id"));
 		Community community = communityService.getCommunityById(id);
 		
-		req.setAttribute("community", community);
+		JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("community", community);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(jsonResponse.toString());
 	}
 
 	private void registCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception{
@@ -96,6 +100,8 @@ public class CommunityController extends HttpServlet{
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(jsonResponse.toString());
 		req.setAttribute("list", list);
+		
+		req.getRequestDispatcher("/~").forward(req, resp);
 	}
 	
 }

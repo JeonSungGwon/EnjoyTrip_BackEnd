@@ -8,4 +8,6 @@ public interface MemberService {
 	Member login(Member member) throws Exception;
 		
 	int updateProfile(int memberNo, Member member) throws Exception;
+	
+	int removeMember(int no) throws Exception;
 }

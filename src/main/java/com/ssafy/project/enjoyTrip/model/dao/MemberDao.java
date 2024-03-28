@@ -6,6 +6,8 @@ public interface MemberDao {
 	int insertMember(Member member) throws Exception;
 
 	Member selectMember(Member member) throws Exception;
+	
+	int deleteMember(int no) throws Exception;
 
 	int updateMember(int memberNo, Member member) throws Exception;
 }

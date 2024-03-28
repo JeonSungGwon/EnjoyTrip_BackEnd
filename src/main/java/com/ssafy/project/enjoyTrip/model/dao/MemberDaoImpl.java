@@ -85,4 +85,31 @@ public class MemberDaoImpl implements MemberDao {
 		}
 	}
 
+	@Override
+	public int deleteMember(int no) throws Exception {
+	    Connection con = null;
+	    PreparedStatement pstmt1 = null;
+	    PreparedStatement pstmt2 = null;
+	    try {
+	        con = DBUtil.getConnection();
+	        // 첫 번째 쿼리: favorite 테이블에서 해당 회원 번호의 레코드 삭제
+	        String sql1 = "DELETE FROM favorite WHERE member_no = ?";
+	        pstmt1 = con.prepareStatement(sql1);
+	        pstmt1.setInt(1, no);
+	        pstmt1.executeUpdate();
+
+	        // 두 번째 쿼리: member 테이블에서 해당 회원 번호의 레코드 삭제
+	        String sql2 = "DELETE FROM member WHERE no = ?";
+	        pstmt2 = con.prepareStatement(sql2);
+	        pstmt2.setInt(1, no);
+	        return pstmt2.executeUpdate();
+	    } finally {
+	        // 리소스 해제
+	        DBUtil.close(con, pstmt1);
+	        DBUtil.close(null, pstmt2); // pstmt2는 pstmt1이 완료된 후에 생성되므로 pstmt1이 null인지 확인할 필요가 없습니다.
+	    }
+	}
+
+
+
 }

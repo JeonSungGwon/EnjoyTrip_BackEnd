@@ -100,25 +100,21 @@ const mainPage = (app) => {
 				});
 			});
 
-			clickStar(results);
+			addClickEventonStars(results);
 			// clickCard();
 		}
 	});
 	// 검색 버튼 클릭 끝!
 
 	// 별 클릭 했을 때 즐겨찾기 등록
-	const clickStar = (results) => {
+	const addClickEventonStars = (results) => {
 		results.forEach((result) => {
 			let starIcon = app.getElementById(`star${result.contentId}`);
 			starIcon.addEventListener("click", (e) => {
-				const storeId = e.target.id.replace("star", "");
-				const target = results.find((result) => result.contentId === storeId);
-				console.log(target);
-
 				// 즐겨찾기 삭제
 				if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
 					starIcon.setAttribute("src", "resources/images/empty_star.svg");
-					[clusterer, markers] = changeMarker(markers, target, clusterer, null);
+					[clusterer, markers] = changeMarker(markers, result, clusterer, null);
 				}
 				// 즐겨찾기 추가 
 				else {
@@ -129,7 +125,7 @@ const mainPage = (app) => {
 						{ offset: new kakao.maps.Point(13, 37) }
 					);
 
-					[clusterer, markers] = changeMarker(markers, target, clusterer, markerImage);
+					[clusterer, markers] = changeMarker(markers, result, clusterer, markerImage);
 
 					const cardId = e.target.id.replace("star", "card");
 					let favoriteValues = $(`#${cardId}`).serialize();

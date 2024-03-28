@@ -79,6 +79,10 @@ const myPage = async (app) => {
 			// 데이터를 서버로 보냅니다.
 			xhr.send(data);
 		});
+
+		app.getElementById(`card${favorite.contentId}`).addEventListener("dblclick", () => {
+			openModal(favorite);
+		});
 	});
 
 
@@ -100,8 +104,8 @@ const myPage = async (app) => {
 			let editForm = app.getElementById("profileEdit");
 			let formData = new FormData(editForm);
 			formData.append("profileImage", imageSrc);
-			
-			for(let x of formData) {
+
+			for (let x of formData) {
 				console.log(x);
 			}
 
@@ -132,6 +136,36 @@ const myPage = async (app) => {
 	logoutButton.addEventListener("click", () => { });
 
 	leaveButton.addEventListener("click", () => { });
+
+	const openModal = (store) => {
+		let modalHtml = `
+			<div>
+				<div class="review-title">
+					<label for="title">제목: </label>
+		  			<input id="title" name="title" />
+		  		</div>
+	  			<label for="content">리뷰 내용: </label>
+	  			<textarea id="content" name="content" cols="40" rows="10"></textarea>
+		  		<button>저장</button>
+	  		<div>
+	    `;
+		document.getElementById("modalBackground").style.display = "flex";
+		document.getElementById("modal").innerHTML += modalHtml;
+		document.getElementById("modalTitle").innerText = `${store.title}`;
+
+		// 닫기
+		document.getElementById("modalClose").addEventListener("click", (e) => {
+			e.preventDefault();
+			const modal = document.getElementById("modalBackground");
+			modal.style.display = "none";
+			document.getElementById("modal").innerHTML = `
+    			<div class="modal-top">
+					<h2 class="modal-title" id="modalTitle"></h2>
+					<span class="material-symbols-outlined" id="modalClose">close</span>
+				</div>		
+    		`;
+		});
+	}
 };
 
 myPage(document);

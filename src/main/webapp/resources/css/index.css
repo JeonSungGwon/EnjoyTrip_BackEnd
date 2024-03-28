@@ -90,10 +90,11 @@ header {
 /* 카드 */
 .card {
 	position: relative;
-	border-radius: 15px;
+	border-radius: 1rem;
 	background-size: cover;
 	margin-bottom: 50px;
 	border: #bbb solid 0.5px;
+	text-overflow: ellipsis;
 }
 
 .hover {
@@ -123,6 +124,7 @@ header {
 
 .card img {
 	position: absolute;
-	top: 10px;
-	left: 10px;
+	top: 1%;
+	left: 1%;
+	width: 25%;
 }

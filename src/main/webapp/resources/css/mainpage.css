@@ -28,20 +28,25 @@ main section:first-child {
 
 .selects {
 	width: 60%;
+	height: 50%;
 	display: flex;
-	justify-content: space-between;
-	gap: 1%;
+	gap: 1rem;
 }
 
-.selects select {
+select {
+	border: 1px solid #aaaaaa;
 	outline: none;
 	font-size: 1rem;
+	width: 40%;
+	border-radius: 1rem;
+	font-size: 1rem;	
 }
 
 .searchbar {
 	width: 40%;
+	height: 50%;
 	border: 1px solid #aaaaaa;
-	border-radius: 30px;
+	border-radius: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -54,7 +59,7 @@ main section:first-child {
 	padding: 0;
 	outline: none;
 	border: none;
-	font-size: 18px;
+	font-size: 1rem;	
 }
 
 button {

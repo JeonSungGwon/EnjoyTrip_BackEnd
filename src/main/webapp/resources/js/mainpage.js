@@ -53,7 +53,6 @@ const mainPage = (app) => {
 			const response = await fetch('/enjoytrip_backend-master/map?action=info&sidoCode=' + locationSelect.value +
 				'&gugunCode=' + subLocationSelect.value + '&title=' + keywordInput.value);
 			results = await response.json();
-			console.log(typeof results, results);
 		} catch (error) {
 			console.error('Error fetching sub locations:', error);
 		}
@@ -81,19 +80,20 @@ const mainPage = (app) => {
 					"18%"
 				);
 			});
-
+			
 			carsdDiv.innerHTML = html;
 			cards = carsdDiv.querySelectorAll(".card");
 			cards.forEach((card) => {
 				setCardWidthHeight(card);
 
 				card.addEventListener("click", (event) => {
-					const cardId = event.currentTarget.id.replace("card", "");
-					const clickedStore = results.find((store) => store.contentid === cardId);
+					const id = event.currentTarget.id.replace("card", "");
+					const clickedStore = results.find((ele) => ele.contentId == id);
+
 					if (clickedStore) {
 						const position = new kakao.maps.LatLng(
-							parseFloat(clickedStore.mapy),
-							parseFloat(clickedStore.mapx)
+							parseFloat(clickedStore.latitude),
+							parseFloat(clickedStore.longitude)
 						);
 						map.setCenter(position);
 					}

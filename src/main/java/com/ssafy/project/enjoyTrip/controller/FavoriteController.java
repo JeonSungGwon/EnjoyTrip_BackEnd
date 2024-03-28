@@ -2,6 +2,8 @@ package com.ssafy.project.enjoyTrip.controller;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
+
 import com.ssafy.project.enjoyTrip.model.Favorite;
 import com.ssafy.project.enjoyTrip.model.service.FavoriteService;
 import com.ssafy.project.enjoyTrip.model.service.FavoriteServiceImpl;
@@ -61,14 +63,21 @@ public class FavoriteController extends HttpServlet{
 
 
     private void addFavorite(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        Favorite favorite = new Favorite();
+        
+    	Favorite favorite = new Favorite();
         favorite.setMemberNo(Integer.parseInt(req.getParameter("memberNo")));
         favorite.setContentId(req.getParameter("contentId"));
         favorite.setAddr(req.getParameter("addr"));
         favorite.setTitle(req.getParameter("title"));
         favorite.setImage(req.getParameter("image"));
-        favoriteService.registFavorite(favorite);
+        boolean success = favoriteService.registFavorite(favorite) == 1 ? true : false;
+        
+        // JSON 객체 생성
+		JSONObject jsonResponse = new JSONObject();
+		jsonResponse.put("success", success);
+		resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(jsonResponse.toString());
+       
     }
-    
-    
 }

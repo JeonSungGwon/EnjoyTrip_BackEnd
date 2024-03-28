@@ -1,84 +1,86 @@
 body {
-  background-image: url(../images/background.png);
-  background-size: cover;
-  overflow: hidden;
+	background-image: url(../images/background.png);
+	background-size: cover;
+	overflow: hidden;
 }
 
 /* (로고) */
 .logo_btn {
-  background-color: transparent;
-  border: none;
-  width: 150px;
-  padding: 0;
-  margin-top: 15px;
-  margin-left: 15px;
+	background-color: transparent;
+	border: none;
+	width: 150px;
+	padding: 0;
+	margin-top: 15px;
+	margin-left: 15px;
 }
 
-.logo_btn > img {
-  width: 100%;
-  height: 100%;
-  margin: auto;
+.logo_btn>img {
+	width: 100%;
+	height: 100%;
+	margin: auto;
 }
 
 /* 본문 또는 공통 */
 main {
-  display: flex; /* main을 flex 컨테이너로 설정 */
-  align-items: center; /* 세로 방향 가운데 정렬 */
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
+	display: flex;
+	/* main을 flex 컨테이너로 설정 */
+	align-items: center;
+	/* 세로 방향 가운데 정렬 */
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
 }
 
-main > div {
-  width: 50%;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 10%;
-  padding: 5% 8%;
+main>div {
+	width: 50%;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 10%;
+	padding: 5% 8%;
 }
 
 form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 }
 
 button {
-  width: 100%;
-  padding: 20px;
-  border: none;
-  background-color: #4e71a7;
-  color: white;
-  border-radius: 5px;
-  font-size: 26px;
-  font-weight: 800;
+	width: 100%;
+	padding: 20px;
+	border: none;
+	background-color: #4e71a7;
+	color: white;
+	border-radius: 5px;
+	font-size: 26px;
+	font-weight: 800;
 }
 
 input {
-  width: 100%;
-  padding: 20px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  font-size: 24px;
+	width: 100%;
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	font-size: 24px;
 }
 
 
 p {
-  font-weight: 800;
-  font-size: 48px;
-  color: white;
-  text-align: center;
-  margin: 0 0 50px 0;
+	font-weight: 800;
+	font-size: 48px;
+	color: white;
+	text-align: center;
+	margin: 0 0 50px 0;
 }
 
 a {
 	font-size: 20px;
-  	align-self: end;
- 	margin-right: 20px;
+	align-self: end;
+	margin-right: 20px;
 	color: #000;
 	text-decoration: underline;
 }

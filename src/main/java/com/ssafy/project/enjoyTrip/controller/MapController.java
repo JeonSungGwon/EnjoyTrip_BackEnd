@@ -64,6 +64,4 @@ public class MapController extends HttpServlet{
 		List<Sido> sidoList = sidoService.getSido();
 		req.setAttribute("sidoList", sidoList);
 	}
-	
-	
 }

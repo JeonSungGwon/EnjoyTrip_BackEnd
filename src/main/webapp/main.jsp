@@ -13,7 +13,7 @@
 
     <link href="resources/css/index.css" rel="stylesheet" />
     <link href="resources/css/mainpage.css" rel="stylesheet" />
-
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7725f9c52c11588d81633bf7a9f1723d&libraries=clusterer"></script>
 
     <script src="resources/js/mainpage.js" type="module" defer></script>

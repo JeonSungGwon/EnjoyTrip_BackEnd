@@ -98,10 +98,18 @@ const mainPage = (app) => {
 						map.setCenter(position);
 					}
 				});
+				
+				card.addEventListener("dblclick", (event) => { 
+					console.log("모달창 열어라!");
+					const id = event.currentTarget.id.replace("card", "");
+					const dbClickedStore = results.find((ele) => ele.contentId == id);
+					
+					if(dbClickedStore)
+						openModal(dbClickedStore);
+				});
 			});
 
 			addClickEventonStars(results);
-			// clickCard();
 		}
 	});
 	// 검색 버튼 클릭 끝!
@@ -164,6 +172,34 @@ const mainPage = (app) => {
 				}
 			});
 		});
+	}
+	
+	const openModal = (store) => {
+		console.log(store);
+		let addr = store.addr1 ? store.addr1 : "(없음)";
+		let tel = store.tel ? store.tel : "(없음)";
+		let modalHtml = `
+	  		<h3>📌주소 : ${addr}</h3>
+	  		<h3>📞전화번호 : ${tel}</h3>
+	  		<hr />
+	  		<h1>✨장소에 등록 된 리뷰✨</h1>
+	    `;
+	    document.getElementById("modalBackground").style.display = "flex";
+	  	document.getElementById("modal").innerHTML += modalHtml;
+	    document.getElementById("modalTitle").innerText = `${store.title}`;
+		
+		// 닫기
+  		document.getElementById("modalClose").addEventListener("click", (e) => {
+    		e.preventDefault();
+    		const modal = document.getElementById("modalBackground");
+    		modal.style.display = "none";
+    		document.getElementById("modal").innerHTML = `
+    			<div class="modal-top">
+					<h2 class="modal-title" id="modalTitle"></h2>
+					<span class="material-symbols-outlined" id="modalClose">close</span>
+				</div>		
+    		`;
+  		});
 	}
 }
 

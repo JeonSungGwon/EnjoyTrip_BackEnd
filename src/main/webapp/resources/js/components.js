@@ -24,15 +24,4 @@ export function setCardWidthHeight(card) {
 	card.style.height = `${cardWidth}px`;
 }
 
-export function Modal(html) {
-	let body = document.getElementsByTagName("body")[0].innerHTML;
-	let modal = `
-        <div class="modal-background" id="modalBackground">
-            <div class="modal">${html}</div>
-        </div>
-    `;
-
-	document.getElementsByTagName("body")[0].innerHTML += modal;
-}
-
 

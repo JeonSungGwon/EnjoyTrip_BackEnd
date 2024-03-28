@@ -6,4 +6,6 @@ public interface MemberService {
 	int signup(Member member) throws Exception;
 
 	Member login(Member member) throws Exception;
+		
+	int updateProfile(int memberNo, Member member) throws Exception;
 }

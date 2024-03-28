@@ -2,17 +2,20 @@
     pageEncoding="UTF-8" %>
 <header>
 	<img class="logo" id="logo" src="resources/images/logo.svg" />
-    <div id="profile${member.no}" class="profile" style="cursor: pointer">
-        <img class="profile-image" src="${member.profileImage}" />
-        <p>${member.nickname}</p>
-    </div>
+	<nav>
+		<a href="">🔥커뮤니티</a>
+	    <div id="profile${member.no}" class="profile" style="cursor: pointer">
+	        <img class="image" src="${member.profileImage}" />
+	        <p>${member.nickname}</p>
+	    </div>
+	</nav>
 	<script>
 		document.getElementsByTagName("div")[0].addEventListener("click", ()=> {
-			console.log("go mypage!");
+			window.location.href = "member?action=mypage";
 		});
 		
 		document.getElementById("logo").addEventListener("click", ()=> {
-			console.log("go mainpage!");
+			window.location.href = "member?action=home";
 		});
 	</script>
 </header>

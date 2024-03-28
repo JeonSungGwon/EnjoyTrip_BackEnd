@@ -3,6 +3,7 @@ package com.ssafy.project.enjoyTrip.model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.ssafy.project.enjoyTrip.model.Member;
 import com.ssafy.project.enjoyTrip.util.DBUtil;
@@ -66,9 +67,22 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int updateMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateMember(int memberNo, Member member) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = DBUtil.getConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update member set nickname = ?, profileImage = ? where no = ? ");
+			pstmt = con.prepareStatement(sql.toString());
+			int index = 0;
+			pstmt.setString(++index, member.getNickname());
+			pstmt.setString(++index, member.getProfileImage());
+			pstmt.setInt(++index, memberNo);
+			return pstmt.executeUpdate();
+		} finally {
+			DBUtil.close(con, pstmt);
+		}
 	}
 
 }

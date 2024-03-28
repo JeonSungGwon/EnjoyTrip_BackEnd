@@ -25,4 +25,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectMember(member);
 	}
 
+	@Override
+	public int updateProfile(int memberNo, Member member) throws Exception {
+		return memberDao.updateMember(memberNo, member);
+	}
+
 }

@@ -94,7 +94,7 @@ const mainPage = (app) => {
 					isFavorite
 				);
 			});
-			
+
 			carsdDiv.innerHTML = html;
 			cards = carsdDiv.querySelectorAll(".card");
 			cards.forEach((card) => {
@@ -112,13 +112,13 @@ const mainPage = (app) => {
 						map.setCenter(position);
 					}
 				});
-				
-				card.addEventListener("dblclick", (event) => { 
+
+				card.addEventListener("dblclick", (event) => {
 					console.log("모달창 열어라!");
 					const id = event.currentTarget.id.replace("card", "");
 					const dbClickedStore = results.find((ele) => ele.contentId == id);
-					
-					if(dbClickedStore)
+
+					if (dbClickedStore)
 						openModal(dbClickedStore);
 				});
 			});
@@ -137,13 +137,13 @@ const mainPage = (app) => {
 				if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
 					starIcon.setAttribute("src", "resources/images/empty_star.svg");
 					[clusterer, markers] = changeMarker(markers, result, clusterer, null);
-					
+
 					$.ajax({
 						type: 'post',
 						url: `favorite?action=remove&contentId=${result.contentId}`,
 						dataType: 'json',
 						success: function(json) {
-							if(json.success) alert("즐겨찾기 삭제!");
+							if (json.success) alert("즐겨찾기 삭제!");
 						},
 						error: function(xhr, status, error) {
 							//오류 발생 시 처리
@@ -173,7 +173,7 @@ const mainPage = (app) => {
 						data: favoriteValues,
 						dataType: 'json',
 						success: function(json) {
-							if(json.success) alert("즐겨찾기 추가!");
+							if (json.success) alert("즐겨찾기 추가!");
 						},
 						error: function(xhr, status, error) {
 							//오류 발생 시 처리
@@ -187,7 +187,7 @@ const mainPage = (app) => {
 			});
 		});
 	}
-	
+
 	const openModal = (store) => {
 		console.log(store);
 		let addr = store.addr1 ? store.addr1 : "(없음)";
@@ -198,22 +198,22 @@ const mainPage = (app) => {
 	  		<hr />
 	  		<h1>✨장소에 등록 된 리뷰✨</h1>
 	    `;
-	    document.getElementById("modalBackground").style.display = "flex";
-	  	document.getElementById("modal").innerHTML += modalHtml;
-	    document.getElementById("modalTitle").innerText = `${store.title}`;
-		
+		document.getElementById("modalBackground").style.display = "flex";
+		document.getElementById("modal").innerHTML += modalHtml;
+		document.getElementById("modalTitle").innerText = `${store.title}`;
+
 		// 닫기
-  		document.getElementById("modalClose").addEventListener("click", (e) => {
-    		e.preventDefault();
-    		const modal = document.getElementById("modalBackground");
-    		modal.style.display = "none";
-    		document.getElementById("modal").innerHTML = `
+		document.getElementById("modalClose").addEventListener("click", (e) => {
+			e.preventDefault();
+			const modal = document.getElementById("modalBackground");
+			modal.style.display = "none";
+			document.getElementById("modal").innerHTML = `
     			<div class="modal-top">
 					<h2 class="modal-title" id="modalTitle"></h2>
 					<span class="material-symbols-outlined" id="modalClose">close</span>
 				</div>		
     		`;
-  		});
+		});
 	}
 }
 

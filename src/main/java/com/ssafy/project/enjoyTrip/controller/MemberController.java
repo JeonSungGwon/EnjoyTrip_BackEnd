@@ -79,9 +79,11 @@ public class MemberController extends HttpServlet {
 
 	private void updateMember(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		System.out.println(memberNo + ", " + req.getParameter("profileImage"));
+		
 		Member member = new Member();
 		member.setProfileImage(req.getParameter("profileImage"));
-		System.out.println(req.getParameter("memberNo") + ", " + req.getParameter("profileImage"));
+		System.out.println(member.toString());
 		
 		//memberService.updateProfile(memberNo, member);
 	}

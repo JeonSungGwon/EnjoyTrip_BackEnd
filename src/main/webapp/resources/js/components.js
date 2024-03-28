@@ -20,11 +20,24 @@ export const Card = (memberNo, id, image, title, addr, width, isFavorite) => {
         </form>
     `;
 }
+export function Card2(id, image, title, addr, width) {
+  return `
+    <div style="width: ${width}; background-image: url(${image});" id="card${id}" class="card" >
+        <div class="hover">
+            <p style="font-weight: bold; font-size: 18px">${title}</p>
+            <div style="display: flex;">
+                <span class="material-symbols-outlined">location_on</span>
+                <p style="font-size: 16px;">${addr}</p>
+            </div>
+        </div>
+    <!-- 추가할 내용이 있을 수 있으므로(별 같은거) div 닫지 않음 -->
+    
+    `;
+}
 
 
 export function setCardWidthHeight(card) {
-	let cardWidth = card.clientWidth;
-	card.style.height = `${cardWidth}px`;
+    let cardWidth = card.clientWidth;
+    card.style.height = `${cardWidth}px`;
 }
-
 

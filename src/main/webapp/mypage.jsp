@@ -23,10 +23,7 @@
 	<main>
 		<section>
 			<form id="profileEdit" class="profile-edit">
-				<img src="${member.profileImage}" id="profileImage" /> 
-				<input
-					type="file" accept="image/*" id="fileInput" name="profile-image"
-					style="display: none" />
+				<img src="${member.profileImage}" id="profileImage" />
 				<h1>${member.nickname}</h1>
 				<span class="material-symbols-outlined" id="editProfile">edit</span>
 			</form>

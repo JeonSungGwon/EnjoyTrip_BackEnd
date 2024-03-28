@@ -56,13 +56,13 @@ const mainPage = (app) => {
 		} catch (error) {
 			console.error('Error fetching sub locations:', error);
 		}
-		
+
 		try {
-			const response = await fetch('favorite?action=list&memberNo='+ memberNo);
+			const response = await fetch('favorite?action=list&memberNo=' + memberNo);
 			favoriteList = await response.json();
 			if (!Array.isArray(favoriteList)) {
-   			 	// favoriteList가 배열이 아닌 경우, 배열로 변환
-    			favoriteList = Object.values(favoriteList);
+				// favoriteList가 배열이 아닌 경우, 배열로 변환
+				favoriteList = Object.values(favoriteList);
 			}
 		} catch (error) {
 			console.error('Error fetching sub locations:', error);
@@ -81,7 +81,7 @@ const mainPage = (app) => {
 
 			let html = "";
 			results.map((result) => {
-				console.log("ㅁㄴㅇㅁㄴ",favoriteList[0][0]);
+				console.log("ㅁㄴㅇㅁㄴ", favoriteList[0][0]);
 				const isFavorite = favoriteList[0].find((favorite) => favorite.memberNo == memberNo && favorite.contentId == result.contentId);
 				carsdDiv = app.getElementById("cards");
 				html += Card(
@@ -99,9 +99,9 @@ const mainPage = (app) => {
 			cards = carsdDiv.querySelectorAll(".card");
 			cards.forEach((card) => {
 				setCardWidthHeight(card);
-				
+
 				card.addEventListener("click", (event) => {
-					
+
 					const id = event.currentTarget.id.replace("card", "");
 					const clickedStore = results.find((ele) => ele.contentId == id);
 					if (clickedStore) {

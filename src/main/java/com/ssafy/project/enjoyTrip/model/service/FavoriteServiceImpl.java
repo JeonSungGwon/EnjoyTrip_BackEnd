@@ -28,8 +28,8 @@ public class FavoriteServiceImpl implements FavoriteService {
 	}
 
 	@Override
-	public List<Favorite> getFavorites(Favorite favorite, int memberNo) throws Exception {
-		return favoriteDao.selectFavorite(favorite, memberNo);
+	public List<Favorite> getFavorites(int memberNo) throws Exception {
+		return favoriteDao.selectFavorite(memberNo);
 	}
 
 }

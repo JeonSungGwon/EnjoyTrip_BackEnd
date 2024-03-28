@@ -61,7 +61,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	}
 
 	@Override
-	public List<Favorite> selectFavorite(Favorite favorite, int memberNo) throws Exception {
+	public List<Favorite> selectFavorite(int memberNo) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		List<Favorite> list = new ArrayList<>();
@@ -70,7 +70,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select * ");
 			sql.append("from favorite ");
-			sql.append("where memberNo = ? ");
+			sql.append("where member_no = ? ");
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, memberNo);
 			ResultSet rs = pstmt.executeQuery();

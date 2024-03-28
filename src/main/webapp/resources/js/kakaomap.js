@@ -22,20 +22,36 @@ function makeOutListener(infowindow) {
 	};
 }
 
-export function setSearchedMap(clusterer, markers, stores, map) {
+export function setSearchedMap(clusterer, markers, stores, map, favoriteList, memberNo) {
 	// 기존 마커 제거
 	clusterer.clear();
 	markers = [];
 
 	stores.forEach((store) => {
+		alert(memberNo);
+		const isFavorite = favoriteList[0].find((favorite) => favorite.memberNo == memberNo && favorite.contentId == store.contentId);
+		let marker; // let으로 선언
+
 		const markerPosition = new kakao.maps.LatLng(
 			parseFloat(store.latitude),
 			parseFloat(store.longitude)
 		);
-		const marker = new kakao.maps.Marker({
+		if(isFavorite){
+			marker = new kakao.maps.Marker({ // const -> let으로 변경
 			position: markerPosition,
 			title: store.title,
-		});
+			image: new kakao.maps.MarkerImage(
+                "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+                new kakao.maps.Size(25, 40),
+                { offset: new kakao.maps.Point(13, 37) }
+              ),
+			});
+		}else{
+			marker = new kakao.maps.Marker({ // const -> let으로 변경
+			position: markerPosition,
+			title: store.title,
+			});
+		}
 
 		const infowindow = new kakao.maps.InfoWindow({
 			content:
@@ -69,9 +85,7 @@ export function setSearchedMap(clusterer, markers, stores, map) {
 		parseFloat(firstStore.latitude),
 		parseFloat(firstStore.longitude)
 	);
-
 	map.setCenter(center);
-
 	return [clusterer, markers];
 }
 
@@ -88,14 +102,19 @@ export function changeMarker(markers, target, clusterer, markerImage) {
 			parseFloat(target.longitude)
 		);
 
-		const newMarker = markerImage ? new kakao.maps.Marker({
-			position: markerPosition,
-			title: target.title,
-			image: markerImage
-		}) : new kakao.maps.Marker({
-			position: markerPosition,
-			title: target.title
-		});
+		let newMarker; // let으로 선언
+		if (markerImage) {
+			newMarker = new kakao.maps.Marker({
+				position: markerPosition,
+				title: target.title,
+				image: markerImage
+			});
+		} else {
+			newMarker = new kakao.maps.Marker({
+				position: markerPosition,
+				title: target.title
+			});
+		}
 
 		markers.push(newMarker);
 		clusterer.addMarker(newMarker);

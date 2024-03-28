@@ -18,7 +18,7 @@ const mainPage = (app) => {
 		minLevel: 5, // 클러스터 할 최소 지도 레벨
 	});
 	let markers = [];
-
+	let favoriteList = []
 	let carsdDiv = null;
 	let cards = null;
 	let results = [];
@@ -56,6 +56,17 @@ const mainPage = (app) => {
 		} catch (error) {
 			console.error('Error fetching sub locations:', error);
 		}
+		
+		try {
+			const response = await fetch('/enjoytrip_backend-master/favorite?action=list&memberNo='+ memberNo);
+			favoriteList = await response.json();
+			if (!Array.isArray(favoriteList)) {
+   			 	// favoriteList가 배열이 아닌 경우, 배열로 변환
+    			favoriteList = Object.values(favoriteList);
+			}
+		} catch (error) {
+			console.error('Error fetching sub locations:', error);
+		}
 
 		// 검색 결과
 		if (results == null) {
@@ -66,10 +77,12 @@ const mainPage = (app) => {
 		        <div id="cards" class="cards"></div>
 		    `;
 
-			[clusterer, markers] = setSearchedMap(clusterer, markers, results, map);
+			[clusterer, markers] = setSearchedMap(clusterer, markers, results, map, favoriteList, memberNo);
 
 			let html = "";
 			results.map((result) => {
+				console.log("ㅁㄴㅇㅁㄴ",favoriteList[0][0]);
+				const isFavorite = favoriteList[0].find((favorite) => favorite.memberNo == memberNo && favorite.contentId == result.contentId);
 				carsdDiv = app.getElementById("cards");
 				html += Card(
 					memberNo,
@@ -77,7 +90,8 @@ const mainPage = (app) => {
 					result.firstImage ? result.firstImage : "",
 					result.title.split("(")[0],
 					result.addr1.split(" ")[0] + " " + result.addr1.split(" ")[1],
-					"18%"
+					"18%",
+					isFavorite
 				);
 			});
 			
@@ -85,11 +99,11 @@ const mainPage = (app) => {
 			cards = carsdDiv.querySelectorAll(".card");
 			cards.forEach((card) => {
 				setCardWidthHeight(card);
-
+				
 				card.addEventListener("click", (event) => {
+					
 					const id = event.currentTarget.id.replace("card", "");
 					const clickedStore = results.find((ele) => ele.contentId == id);
-
 					if (clickedStore) {
 						const position = new kakao.maps.LatLng(
 							parseFloat(clickedStore.latitude),

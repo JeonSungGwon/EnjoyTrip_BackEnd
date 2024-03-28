@@ -9,5 +9,5 @@ public interface FavoriteService {
 
 	int removeFavorite(String contentId) throws Exception;
 
-	List<Favorite> getFavorites(Favorite favorite, int memberNo) throws Exception;
+	List<Favorite> getFavorites(int memberNo) throws Exception;
 }

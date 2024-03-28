@@ -1,6 +1,7 @@
 package com.ssafy.project.enjoyTrip.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.json.JSONObject;
 
@@ -31,12 +32,26 @@ public class FavoriteController extends HttpServlet {
 			case "remove":
 				removeFavorite(req, resp);
 				break;
+			case "list":
+				getFavorites(req, resp);
+				break;
 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void getFavorites(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		List<Favorite> list = favoriteService.getFavorites(memberNo);
+		JSONObject jsonResponse = new JSONObject();
+		jsonResponse.put("list", list);
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(jsonResponse.toString());
+		System.out.println("aslkdjaskldsajdljsalkdjsadkldjdljakdjsdjsaldkajdlkajsdkljkalsdjlaskjasdklasdjlk");
 	}
 
 	private void removeFavorite(HttpServletRequest req, HttpServletResponse resp) throws Exception {

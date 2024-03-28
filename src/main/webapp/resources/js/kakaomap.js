@@ -22,7 +22,7 @@ function makeOutListener(infowindow) {
   };
 }
 
-export function setMarkers(clusterer, markers, stores, map) {
+export function setSearchedMap(clusterer, markers, stores, map) {
 	// 기존 마커 제거
     clusterer.clear();
     markers = [];
@@ -72,17 +72,17 @@ export function setMarkers(clusterer, markers, stores, map) {
    
 	map.setCenter(center);
 	
-	return [markers, clusterer];
+	return [clusterer, markers];
 }
 
-export function makeMarker(markers, target, clusterer, markerImage) {
-	console.log(target);
+export function changeMarker(markers, target, clusterer, markerImage) {
 	const clickedMarker = markers.find((marker) => marker.getTitle() === target.title);
 	if (clickedMarker !== undefined) {	        
 		// 기존의 마커를 제거합니다.
-		clusterer.removeMarker(clickedMarker); // 클러스터에서도 제거합니다.
+		clusterer.removeMarker(clickedMarker);
+		console.log(clusterer.removeMarker());
 		markers = markers.filter((marker) => marker !== clickedMarker);
-		
+			
 		// 새로운 마커를 생성하여 클러스터에 추가합니다.
 		const markerPosition = new kakao.maps.LatLng(
 			parseFloat(target.mapy),
@@ -101,4 +101,6 @@ export function makeMarker(markers, target, clusterer, markerImage) {
 		markers.push(newMarker);
 		clusterer.addMarker(newMarker);
 	}
+	
+	return [clusterer, markers];
 }

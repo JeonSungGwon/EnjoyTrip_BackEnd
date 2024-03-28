@@ -1,5 +1,5 @@
 import { Card, setCardWidthHeight } from "./components.js";
-import { initializeKakaoMap, makeMarker, setMarkers } from "./kakao.js";
+import { changeMarker, initializeKakaoMap, setSearchedMap,  } from "./kakaomap.js";
 import { fetchSubLocationOptions, search } from "./service.js";
 
 const mainPage = (app) => {	
@@ -11,6 +11,7 @@ const mainPage = (app) => {
       minLevel: 5, // 클러스터 할 최소 지도 레벨
     });
     let markers = [];
+	let mapInfo = [clusterer, markers];
     
 	const locationSelect = app.getElementById("location");
 	const subLocationSelect = app.getElementById("subLocation");	
@@ -50,9 +51,9 @@ const mainPage = (app) => {
 		        <div id="cards" class="cards"></div>
 		    `;
 		    
-		   	let temp = setMarkers(clusterer, markers, results, map);
-			markers = temp[0];
-			clusterer = temp[1];
+		   	mapInfo = setSearchedMap(clusterer, markers, results, map);
+			clusterer = mapInfo[0];
+			markers = mapInfo[1];
 			
 			let html = "";
 			results.map((result) => {
@@ -100,21 +101,25 @@ const mainPage = (app) => {
         		// 즐겨찾기 삭제
         		if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
           			starIcon.setAttribute("src", "resources/images/empty_star.svg");
-          			makeMarker(markers, target, clusterer, null);
+          			mapInfo = changeMarker(markers, target, clusterer, null);
+          			clusterer= mapInfo[0];
+          			markers = mapInfo[1];
 		        }
 		        // 즐겨찾기 추가 
 		        else {
 					let memberNo = app.getElementsByClassName("profile")[0].id.split("profile")[1];
-					console.log(target);
-				 	window.location.href = "favorite?action=add&memberNo=" + `${memberNo}` + "&contentId=" + `${target.contentid}` + "&addr=" + `${target.addr1 ? target.addr1 : target.addr2}` 
-				 		+ "&title=" + `${target.title}` + "&image=" + `${target.firstimage}`;
+					//console.log(target);
+				 	//window.location.href = "favorite?action=add&memberNo=" + `${memberNo}` + "&contentId=" + `${target.contentid}` + "&addr=" + `${target.addr1 ? target.addr1 : target.addr2}` 
+				 	//	+ "&title=" + `${target.title}` + "&image=" + `${target.firstimage}`;
 					starIcon.setAttribute("src", "resources/images/full_star.svg");
 					let markerImage = new kakao.maps.MarkerImage(
 											"https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
 											new kakao.maps.Size(25, 40),
 						                	{ offset: new kakao.maps.Point(13, 37)}	
 						                );
-					makeMarker(markers, target, clusterer, markerImage);
+					mapInfo = changeMarker(markers, target, clusterer, markerImage);
+					clusterer= mapInfo[0];
+          			markers = mapInfo[1];
         		}
       		});
     	}

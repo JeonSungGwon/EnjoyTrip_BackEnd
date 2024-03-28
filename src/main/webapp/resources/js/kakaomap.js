@@ -28,7 +28,7 @@ export function setSearchedMap(clusterer, markers, stores, map, favoriteList, me
 	markers = [];
 
 	stores.forEach((store) => {
-		alert(memberNo);
+		//alert(memberNo);
 		const isFavorite = favoriteList[0].find((favorite) => favorite.memberNo == memberNo && favorite.contentId == store.contentId);
 		let marker; // let으로 선언
 

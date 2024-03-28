@@ -1,6 +1,7 @@
 @font-face {
 	font-family: "nanumsquare";
-	src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+	src:
+		url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -9,8 +10,7 @@
 	box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
 	margin: 0;
 	padding: 0;
 	width: 100vw;
@@ -22,9 +22,7 @@ input [type="password"] {
 	font-family: "roboto";
 }
 
-input[type="text"],
-select,
-option {
+input[type="text"], select, option {
 	font-family: "nanumsquare";
 }
 
@@ -74,6 +72,8 @@ nav {
 }
 
 nav a {
+	font-size: 1.2rem;
+	margin: auto;
 	color: #fff;
 	text-decoration: none;
 }
@@ -96,7 +96,6 @@ nav a {
 .profile p {
 	margin: 0;
 }
-
 
 /* 카드 */
 .card {

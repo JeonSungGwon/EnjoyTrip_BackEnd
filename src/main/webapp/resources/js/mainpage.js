@@ -28,7 +28,7 @@ const mainPage = (app) => {
 		subLocationSelect.innerHTML = "<option value=\"\">불러오는 중..</option>";
 
 		try {
-			const response = await fetch('/enjoytrip_backend-master/map?action=gugun&sidoCode=' + locationSelect.value);
+			const response = await fetch('map?action=gugun&sidoCode=' + locationSelect.value);
 			const gugunList = await response.json();
 
 			subLocationSelect.innerHTML = "";
@@ -50,7 +50,7 @@ const mainPage = (app) => {
 		e.preventDefault();
 
 		try {
-			const response = await fetch('/enjoytrip_backend-master/map?action=info&sidoCode=' + locationSelect.value +
+			const response = await fetch('map?action=info&sidoCode=' + locationSelect.value +
 				'&gugunCode=' + subLocationSelect.value + '&title=' + keywordInput.value);
 			results = await response.json();
 		} catch (error) {
@@ -58,7 +58,7 @@ const mainPage = (app) => {
 		}
 		
 		try {
-			const response = await fetch('/enjoytrip_backend-master/favorite?action=list&memberNo='+ memberNo);
+			const response = await fetch('favorite?action=list&memberNo='+ memberNo);
 			favoriteList = await response.json();
 			if (!Array.isArray(favoriteList)) {
    			 	// favoriteList가 배열이 아닌 경우, 배열로 변환
@@ -189,7 +189,6 @@ const mainPage = (app) => {
 	}
 
 	const openModal = (store) => {
-		console.log(store);
 		let addr = store.addr1 ? store.addr1 : "(없음)";
 		let tel = store.tel ? store.tel : "(없음)";
 		let modalHtml = `

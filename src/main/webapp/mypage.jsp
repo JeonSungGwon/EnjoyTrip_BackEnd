@@ -23,8 +23,9 @@
 	<main>
 		<section>
 			<form id="profileEdit" class="profile-edit">
-				<img src="${member.profileImage}" id="profileImage" />
-				<input type="file" accept = "image/*" id="fileInput" name="profileImage" style="display: none" />
+				<img src="${member.profileImage}" id="profileImage" /> <input
+					type="file" accept="image/*" id="fileInput" name="profileImage"
+					style="display: none" />
 				<h1>${member.nickname}</h1>
 				<span class="material-symbols-outlined" id="editProfile">edit</span>
 			</form>

@@ -1,30 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <head>
-	<style>
-		footer {
-		  position: fixed;
-		  bottom: 0;
-		  width: 100%;
-		  height: 50px;
-		  display: flex;
-		  justify-content: space-between;
-		  align-items: center;
-		  background-color: #738fbb;
-		  z-index: 10;
-		}
-		
-		footer p {
-		  color: #fff;
-		  margin: 16px 20px;
-		  font-size: 20px;
-		  cursor: pointer;
-		}
-	</style>
+<style>
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #738fbb;
+	z-index: 10;
+}
+
+footer p {
+	color: #fff;
+	margin: 16px 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+</style>
 </head>
 <footer>
-   <p id="ssafy">SSAFY</p>
-   <p id="contactus">ContactUs</p>
+	<p id="ssafy">SSAFY</p>
+	<p id="contactus">ContactUs</p>
 </footer>
 <script>
 	// 싸피 홈페이지로 이동

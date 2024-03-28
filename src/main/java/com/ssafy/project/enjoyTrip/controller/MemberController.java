@@ -47,10 +47,18 @@ public class MemberController extends HttpServlet {
 				break;
 			case "home":
 				navigateToHome(req, resp);
+				break;
+			case "community":
+				navigateToCommunity(req, resp);
+				break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void navigateToCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		req.getRequestDispatcher("/community.jsp").forward(req, resp);
 	}
 
 	private void navigateToHome(HttpServletRequest req, HttpServletResponse resp) throws Exception {

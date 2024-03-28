@@ -30,74 +30,91 @@
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
+			
 			<figure>
 				<img
 					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
+				<div style="width: 90%; margin: auto">
+					<span>안녕하세요 대구 이월드 다녀왔어요~~!</span><span>✍🏻이또롱</span>
+				</div>
 			</figure>
-			<figure>
-				<img
-					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
-			</figure>
-			<figure>
-				<img
-					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
-			</figure>
-			<figure>
-				<img
-					src="https://mblogthumb-phinf.pstatic.net/MjAyMjAzMzFfNzEg/MDAxNjQ4NjUzMzAzMTI0.-35kMUed9N8GuIYuNvRMX6XdH6naBjtjM2xFEdKKuiwg.QUHrwzAKPTYJyC6rYjEoYE3o4bs8NrsZrHnQoWtfCHAg.JPEG.lovemw3/%EB%8C%80%EA%B5%AC%EB%B2%9A%EA%BD%83_(1).jpg?type=w800" />
-				<figcaption>대구 이월드 다녀왔어요~~! ✍🏻이또롱</figcaption>
-			</figure>
-
+			
 		</section>
 	</main>
 

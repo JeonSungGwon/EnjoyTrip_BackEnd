@@ -3,7 +3,7 @@
 <header>
 	<img class="logo" id="logo" src="resources/images/logo.svg" />
 	<nav>
-		<a href="member?action=community">🔥커뮤니티</a>
+		<a href="community?action=list">🔥커뮤니티</a>
 		<div id="profile${member.no}" class="profile" style="cursor: pointer">
 			<img class="image" src="${member.profileImage}" />
 			<p>${member.nickname}</p>

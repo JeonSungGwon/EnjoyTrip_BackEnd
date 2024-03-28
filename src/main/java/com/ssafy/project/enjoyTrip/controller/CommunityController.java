@@ -94,14 +94,13 @@ public class CommunityController extends HttpServlet{
 
 	private void getAllCommunities(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 		List<Community> list = communityService.getAllCommunities();
-        JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("list", list);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(jsonResponse.toString());
+        //JSONObject jsonResponse = new JSONObject();
+        //jsonResponse.put("list", list);
+        //resp.setContentType("application/json");
+        //resp.setCharacterEncoding("UTF-8");
+        //resp.getWriter().write(jsonResponse.toString());
 		req.setAttribute("list", list);
-		
-		req.getRequestDispatcher("/~").forward(req, resp);
-	}
-	
+
+		req.getRequestDispatcher("/community.jsp").forward(req, resp);
+	}	
 }

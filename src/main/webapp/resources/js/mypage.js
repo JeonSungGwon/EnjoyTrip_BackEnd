@@ -1,7 +1,8 @@
 import { Card2, setCardWidthHeight } from "./components.js";
 const myPage = async (app) => {
 	const memberNo = app.getElementsByClassName("profile")[0].id.split("profile")[1];
-
+	const nickname = app.getElementsByClassName("profile")[0].getElementsByTagName("p")[0].innerText;;
+	
 	const editButton = app.getElementById("editProfile");
 	const logoutButton = app.getElementById("logout");
 	const leaveButton = app.getElementById("leave");
@@ -139,7 +140,9 @@ const myPage = async (app) => {
 
 	const openModal = (store) => {
 		let modalHtml = `
-			<div>
+			<form action="community">
+				<input type="hidden" name="action" value="regist" />
+				<input type="hidden" name="author" value="${nickname}" />
 				<div class="review-title">
 					<label for="title">제목: </label>
 		  			<input id="title" name="title" />
@@ -147,7 +150,7 @@ const myPage = async (app) => {
 	  			<label for="content">리뷰 내용: </label>
 	  			<textarea id="content" name="content" cols="40" rows="10"></textarea>
 		  		<button>저장</button>
-	  		<div>
+	  		<form>
 	    `;
 		document.getElementById("modalBackground").style.display = "flex";
 		document.getElementById("modal").innerHTML += modalHtml;

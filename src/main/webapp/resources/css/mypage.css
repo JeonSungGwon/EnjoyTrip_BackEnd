@@ -94,7 +94,7 @@ h1 {
 	padding: 10px;
 }
 
-.modal div:last-child {
+form {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -111,9 +111,13 @@ h1 {
 }
 
 .modal input {
-	width: 80%; outline : none;
-	border: #aaa solid 0.5px;
+	width: 80%;
 	padding: 0.5rem;
+	outline: none;
+}
+
+.modal input, textarea {
+	border: #aaa solid 0.5px;
 	outline: none;
 }
 

@@ -6,9 +6,10 @@ public class Member {
 	private String password;
 	private String nickname;
 	private String profileImage;
-	
-	public Member() {}
-	
+
+	public Member() {
+	}
+
 	public Member(int no, String id, String password, String nickname, String profileImage) {
 		super();
 		this.no = no;
@@ -63,9 +64,5 @@ public class Member {
 		return "Member [no=" + no + ", id=" + id + ", password=" + password + ", nickname=" + nickname
 				+ ", profileImage=" + profileImage + "]";
 	}
-	
-	
-	
-	
-	
+
 }

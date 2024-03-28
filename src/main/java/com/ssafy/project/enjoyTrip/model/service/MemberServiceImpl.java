@@ -6,13 +6,15 @@ import com.ssafy.project.enjoyTrip.model.dao.MemberDaoImpl;
 
 public class MemberServiceImpl implements MemberService {
 	private MemberDao memberDao = MemberDaoImpl.getMemberDao();
-	
+
 	private static MemberService memberService;
+
 	public static MemberService getMemberService() {
-		if(memberService == null) memberService = new MemberServiceImpl();
+		if (memberService == null)
+			memberService = new MemberServiceImpl();
 		return memberService;
 	}
-	
+
 	@Override
 	public int signup(Member member) throws Exception {
 		return memberDao.insertMember(member);

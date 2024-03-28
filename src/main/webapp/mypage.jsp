@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link href="assets/css/index.css" rel="stylesheet" />
-    <link href="assets/css/mypage.css" rel="stylesheet" />
+    <link href="resources/css/index.css" rel="stylesheet" />
+    <link href="resources/css/mypage.css" rel="stylesheet" />
 
     <script src="../js/mypage.js" type="module"></script>
   </head>

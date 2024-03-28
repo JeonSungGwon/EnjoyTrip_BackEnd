@@ -1,9 +1,14 @@
 import { Card, setCardWidthHeight } from "./components.js";
 import { changeMarker, initializeKakaoMap, setSearchedMap, } from "./kakaomap.js";
-import { fetchSubLocationOptions, search } from "./service.js";
 
 const mainPage = (app) => {
 	const memberNo = app.getElementsByClassName("profile")[0].id.split("profile")[1];
+
+	const locationSelect = app.getElementById("location");
+	const subLocationSelect = app.getElementById("subLocation");
+	const keywordInput = app.getElementById("keyword");
+	const searchButton = app.getElementById("searchButton");
+	const resultDiv = app.getElementById("result");
 
 	// 지도 초기화
 	let map = initializeKakaoMap();
@@ -14,36 +19,46 @@ const mainPage = (app) => {
 	});
 	let markers = [];
 
-	const locationSelect = app.getElementById("location");
-	const subLocationSelect = app.getElementById("subLocation");
-	const keywordInput = app.getElementById("keyword");
-	const searchButton = app.getElementById("searchButton");
-
 	let carsdDiv = null;
 	let cards = null;
 	let results = [];
 
-	// 검색 결과 부분
-	const resultDiv = app.getElementById("result");
-
-	// 지역 대분류 선택시 소분류 API 호출
+	// 지역 선택 시작
 	locationSelect.addEventListener("change", async () => {
 		subLocationSelect.innerHTML = "<option value=\"\">불러오는 중..</option>";
-		const subLocations = await fetchSubLocationOptions(locationSelect.value);
-		subLocationSelect.innerHTML = "";
-		subLocations.forEach((location) => {
-			const option = document.createElement("option");
-			option.value = location.code;
-			option.textContent = location.name;
-			subLocationSelect.appendChild(option);
-		});
-	});
 
-	// 검색~
+		try {
+			const response = await fetch('/enjoytrip_backend-master/map?action=gugun&sidoCode=' + locationSelect.value);
+			const gugunList = await response.json();
+
+			subLocationSelect.innerHTML = "";
+
+			gugunList.forEach((gugun) => {
+				const option = document.createElement("option");
+				option.value = gugun.gugunCode;
+				option.textContent = gugun.gugunName;
+				subLocationSelect.appendChild(option);
+			});
+		} catch (error) {
+			console.error('Error fetching sub locations:', error);
+		}
+	});
+	// 지역 선택 끝!
+
+	// 검색 버튼 클릭 시작
 	searchButton.addEventListener("click", async (e) => {
 		e.preventDefault();
-		results = await search(locationSelect.value, subLocationSelect.value, keywordInput.value);
 
+		try {
+			const response = await fetch('/enjoytrip_backend-master/map?action=info&sidoCode=' + locationSelect.value +
+				'&gugunCode=' + subLocationSelect.value + '&title=' + keywordInput.value);
+			results = await response.json();
+			console.log(typeof results, results);
+		} catch (error) {
+			console.error('Error fetching sub locations:', error);
+		}
+
+		// 검색 결과
 		if (results == null) {
 			resultDiv.innerHTML = `<h2 style="margin-bottom: 5rem">검색 결과가 없습니다. 😢</h2>`;
 		} else {
@@ -59,8 +74,8 @@ const mainPage = (app) => {
 				carsdDiv = app.getElementById("cards");
 				html += Card(
 					memberNo,
-					result.contentid,
-					result.firstimage ? result.firstimage : "",
+					result.contentId,
+					result.firstImage ? result.firstImage : "",
 					result.title.split("(")[0],
 					result.addr1.split(" ")[0] + " " + result.addr1.split(" ")[1],
 					"18%"
@@ -84,26 +99,26 @@ const mainPage = (app) => {
 					}
 				});
 			});
-			
+
 			clickStar(results);
 			// clickCard();
 		}
 	});
-	// 검색(click event 처리) end
-	
+	// 검색 버튼 클릭 끝!
+
+	// 별 클릭 했을 때 즐겨찾기 등록
 	const clickStar = (results) => {
-		for (let i = 0; i < results.length; i++) {
-			let starIcon = app.getElementById(`star${results[i].contentid}`);
+		results.forEach((result) => {
+			let starIcon = app.getElementById(`star${result.contentId}`);
 			starIcon.addEventListener("click", (e) => {
 				const storeId = e.target.id.replace("star", "");
-				const target = results.find((result) => result.contentid === storeId);
+				const target = results.find((result) => result.contentId === storeId);
+				console.log(target);
 
 				// 즐겨찾기 삭제
 				if (starIcon.getAttribute("src") === "resources/images/full_star.svg") {
 					starIcon.setAttribute("src", "resources/images/empty_star.svg");
-					mapInfo = changeMarker(markers, target, clusterer, null);
-					clusterer = mapInfo[0];
-					markers = mapInfo[1];
+					[clusterer, markers] = changeMarker(markers, target, clusterer, null);
 				}
 				// 즐겨찾기 추가 
 				else {
@@ -113,32 +128,32 @@ const mainPage = (app) => {
 						new kakao.maps.Size(25, 40),
 						{ offset: new kakao.maps.Point(13, 37) }
 					);
-					
+
 					[clusterer, markers] = changeMarker(markers, target, clusterer, markerImage);
-					
+
 					const cardId = e.target.id.replace("star", "card");
 					let favoriteValues = $(`#${cardId}`).serialize();
 					$.ajax({
-						type:'post',
-					  	url:'favorite?action=add',
-					  	data: favoriteValues,
-					  	dataType: 'json',
-					  	success: function(json) {
-							  //정상 요청, 응답 시 처리 작업
-							  console.log(json);
-							  alert(json);
-					  	},
-					  	error : function(xhr, status, error) {
-					     	 //오류 발생 시 처리
-					      	//alert(error);
-					  	},
-					  	complete:function(data,textStatus) {
-					     	 //작업 완료 후 처리
-					  	}
-				  	});
+						type: 'post',
+						url: 'favorite?action=add',
+						data: favoriteValues,
+						dataType: 'json',
+						success: function(json) {
+							//정상 요청, 응답 시 처리 작업
+							console.log(json);
+							alert(json);
+						},
+						error: function(xhr, status, error) {
+							//오류 발생 시 처리
+							//alert(error);
+						},
+						complete: function(data, textStatus) {
+							//작업 완료 후 처리
+						}
+					});
 				}
 			});
-		}
+		});
 	}
 }
 

@@ -3,8 +3,9 @@ package com.ssafy.project.enjoyTrip.model.map;
 public class Sido {
 	private int sidoCode;
 	private String sidoName;
-	
-	public Sido() {}
+
+	public Sido() {
+	}
 
 	public Sido(int sidoCode, String sidoName) {
 		super();
@@ -27,6 +28,5 @@ public class Sido {
 	public void setSidoName(String sidoName) {
 		this.sidoName = sidoName;
 	}
-	
-	
+
 }

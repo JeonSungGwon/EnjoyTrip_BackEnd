@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBUtil {
-	
+
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
 	private static final String DB_ID = "ssafy";
 	private static final String DB_PWD = "ssafy";
-	
+
 	static {
 		try {
 			Class.forName(DRIVER);
@@ -22,7 +22,7 @@ public class DBUtil {
 	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(URL, DB_ID, DB_PWD);
 	}
-	
+
 //	public static void close(PreparedStatement pstmt, Connection conn) {
 //		try {
 //			if(pstmt != null)
@@ -46,10 +46,10 @@ public class DBUtil {
 //			e.printStackTrace();
 //		}
 //	}
-	
+
 	public static void close(AutoCloseable... autoCloseables) {
-		for(AutoCloseable ac : autoCloseables) {
-			if(ac != null) {
+		for (AutoCloseable ac : autoCloseables) {
+			if (ac != null) {
 				try {
 					ac.close();
 				} catch (Exception e) {

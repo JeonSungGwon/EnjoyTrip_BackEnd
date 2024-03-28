@@ -7,7 +7,7 @@ public class Favorite {
 	private String addr;
 	private String title;
 	private String image;
-	
+
 	public Favorite() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -75,5 +75,5 @@ public class Favorite {
 		return "Favorite [no=" + no + ", memberNo=" + memberNo + ", contentId=" + contentId + ", addr=" + addr
 				+ ", title=" + title + ", image=" + image + "]";
 	}
-	
+
 }

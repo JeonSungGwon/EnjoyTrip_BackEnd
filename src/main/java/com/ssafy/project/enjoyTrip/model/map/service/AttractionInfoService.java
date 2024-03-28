@@ -5,5 +5,5 @@ import java.util.List;
 import com.ssafy.project.enjoyTrip.model.map.AttractionInfo;
 
 public interface AttractionInfoService {
-	List<AttractionInfo> getAttractionInfo(int sidoCode, int gugunCode) throws Exception;
+	List<AttractionInfo> getAttractionInfo(int sidoCode, int gugunCode, String title) throws Exception;
 }

@@ -6,15 +6,17 @@ import com.ssafy.project.enjoyTrip.model.Favorite;
 import com.ssafy.project.enjoyTrip.model.dao.FavoriteDao;
 import com.ssafy.project.enjoyTrip.model.dao.FavoriteDaoImpl;
 
-public class FavoriteServiceImpl implements FavoriteService{
-	
+public class FavoriteServiceImpl implements FavoriteService {
+
 	private FavoriteDao favoriteDao = FavoriteDaoImpl.getFavoriteDao();
 	private static FavoriteService favoriteService;
+
 	public static FavoriteService getMemberService() {
-		if(favoriteService == null) favoriteService = new FavoriteServiceImpl();
+		if (favoriteService == null)
+			favoriteService = new FavoriteServiceImpl();
 		return favoriteService;
 	}
-	
+
 	@Override
 	public int registFavorite(Favorite favorite) throws Exception {
 		return favoriteDao.insertFavorite(favorite);

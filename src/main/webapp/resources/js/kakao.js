@@ -1,3 +1,4 @@
+
 // kakao 맵 초기화
 export const initializeKakaoMap = () => {
 	const mapContainer = document.getElementById("map"); // 지도를 표시할 div
@@ -22,16 +23,17 @@ function makeOutListener(infowindow) {
 	};
 }
 
-export function setSearchedMap(clusterer, markers, stores, map) {
+export function setMarkers(clusterer, markers, stores, map) {
 	// 기존 마커 제거
 	clusterer.clear();
 	markers = [];
 
 	stores.forEach((store) => {
 		const markerPosition = new kakao.maps.LatLng(
-			parseFloat(store.mapy),
-			parseFloat(store.mapx)
+			parseFloat(store.latitude),
+			parseFloat(store.longitude)
 		);
+
 		const marker = new kakao.maps.Marker({
 			position: markerPosition,
 			title: store.title,
@@ -66,27 +68,27 @@ export function setSearchedMap(clusterer, markers, stores, map) {
 	const firstStore = stores[0]; // 첫 번째 상점의 좌표를 기준으로 설정
 
 	const center = new kakao.maps.LatLng(
-		parseFloat(firstStore.mapy),
-		parseFloat(firstStore.mapx)
+		parseFloat(firstStore.latitude),
+		parseFloat(firstStore.longitude)
 	);
 
 	map.setCenter(center);
 
-	return [clusterer, markers];
+	return [markers, clusterer];
 }
 
-export function changeMarker(markers, target, clusterer, markerImage) {
+export function makeMarker(markers, target, clusterer, markerImage) {
 	console.log(target);
 	const clickedMarker = markers.find((marker) => marker.getTitle() === target.title);
 	if (clickedMarker !== undefined) {
 		// 기존의 마커를 제거합니다.
-		clusterer.removeMarker(clickedMarker);
+		clusterer.removeMarker(clickedMarker); // 클러스터에서도 제거합니다.
 		markers = markers.filter((marker) => marker !== clickedMarker);
 
 		// 새로운 마커를 생성하여 클러스터에 추가합니다.
 		const markerPosition = new kakao.maps.LatLng(
-			parseFloat(target.mapy),
-			parseFloat(target.mapx)
+			parseFloat(target.latitude),
+			parseFloat(target.longitude)
 		);
 
 		const newMarker = markerImage ? new kakao.maps.Marker({
@@ -101,6 +103,4 @@ export function changeMarker(markers, target, clusterer, markerImage) {
 		markers.push(newMarker);
 		clusterer.addMarker(newMarker);
 	}
-
-	return [clusterer, markers];
 }

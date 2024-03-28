@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,10 +15,11 @@
 
     <link href="resources/css/index.css" rel="stylesheet" />
     <link href="resources/css/mainpage.css" rel="stylesheet" />
+    
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7725f9c52c11588d81633bf7a9f1723d&libraries=clusterer"></script>
-
-    <script src="resources/js/mainpage.js" type="module" defer></script>
+    
+    <script src="resources/js/mainpage.js?t=<%System.currentTimeMillis();%>" type="module" defer></script>
     <title>Enjoy Trip!</title>
   </head>
   <body>
@@ -30,12 +33,12 @@
             <select name="location" id="location">
               <option value="">시, 도를 선택하세요.</option>
               <c:forEach var="sido" items="${sidoList}">
-            	<option value="${sido.code}">${sido.name}</option>
+            	<option value="${sido.sidoCode}">${sido.sidoName}</option>
           	  </c:forEach>
             </select>
             <select id="subLocation">
               <option value="">시, 군, 구를 선택하세요.</option>
-              <!-- 지역코드 조회 API 결과값 -->
+
             </select>
           </div>
 
@@ -62,12 +65,6 @@
 
     <%@ include file="components/footer.jsp" %>
     <%@ include file="components/modal.jsp" %>
-  
   </body>
-  
-  <script>
-  
-  
-  </script>
 </html>
 

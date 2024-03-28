@@ -7,5 +7,5 @@ public interface MemberDao {
 
 	Member selectMember(Member member) throws Exception;
 
-	int updateMember(Member member) throws Exception;
+	int updateMember(int memberNo, Member member) throws Exception;
 }

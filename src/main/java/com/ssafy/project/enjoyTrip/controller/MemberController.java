@@ -33,16 +33,32 @@ public class MemberController extends HttpServlet {
 			case "doSignup":
 				doSignup(req, resp);
 				break;
+			case "updateProfile":
+				updateMember(req, resp);
+				break;
 			case "login":
 				navigateToLoginPage(req, resp);
 				break;
 			case "signup":
 				navigateToSignupPage(req, resp);
 				break;
+			case "mypage":
+				navigateToMyPage(req, resp);
+				break;
+			case "home":
+				navigateToHome(req, resp);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void navigateToHome(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		req.getRequestDispatcher("/main.jsp").forward(req, resp);
+	}
+
+	private void navigateToMyPage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		req.getRequestDispatcher("/mypage.jsp").forward(req, resp);		
 	}
 
 	private void navigateToLoginPage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -51,6 +67,15 @@ public class MemberController extends HttpServlet {
 
 	private void navigateToSignupPage(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.getRequestDispatcher("/signup.jsp").forward(req, resp);
+	}
+
+	private void updateMember(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		int memberNo = Integer.parseInt(req.getParameter("memberNo"));
+		Member member = new Member();
+		member.setProfileImage(req.getParameter("profileImage"));
+		System.out.println(req.getParameter("memberNo") + ", " + req.getParameter("profileImage"));
+		
+		//memberService.updateProfile(memberNo, member);
 	}
 
 	private void doSignup(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -83,5 +108,4 @@ public class MemberController extends HttpServlet {
 			req.getRequestDispatcher("/index.jsp").forward(req, resp);
 		}
 	}
-
 }

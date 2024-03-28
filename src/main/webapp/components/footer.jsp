@@ -9,6 +9,7 @@
 		  height: 50px;
 		  display: flex;
 		  justify-content: space-between;
+		  align-items: center;
 		  background-color: #738fbb;
 		  z-index: 10;
 		}

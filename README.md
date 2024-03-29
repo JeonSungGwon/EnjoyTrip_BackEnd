@@ -185,6 +185,9 @@
    ![alt text](./images/image-82.png)
    #### 리뷰를 클릭하면 상세 글을 볼 수 있다
    ![alt text](./images/image-81.png)
+   #### 리뷰를 삭제할 수 있다.
+   ![alt text](./images/image-90.png)
+   ![alt text](./images/image-91.png)
 
 <br />
 

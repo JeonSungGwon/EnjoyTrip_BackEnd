@@ -74,8 +74,9 @@ public class FavoriteDaoImpl implements FavoriteDao {
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, memberNo);
 			ResultSet rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
-				list.add(new Favorite(rs.getInt("no"), rs.getInt(memberNo), rs.getString("contentId"),
+				list.add(new Favorite(rs.getInt("no"), rs.getInt("member_no"), rs.getString("contentId"),
 						rs.getString("addr"), rs.getString("title"), rs.getString("image")));
 			}
 			return list;

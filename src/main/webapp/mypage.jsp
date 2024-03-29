@@ -32,7 +32,7 @@
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-.logout-model>div {
+.logout-modal > div {
 	background-color: #fefefe;
 	margin: 15% auto;
 	padding: 20px;

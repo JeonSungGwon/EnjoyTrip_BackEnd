@@ -169,7 +169,6 @@ const myPage = async (app) => {
 
 		// 리뷰 저장
 		app.getElementById("registReview").addEventListener("click", () => {
-			console.log("리뷰 등록!");
 			const registFormValues = $('#registForm').serialize();
 
 			$.ajax({

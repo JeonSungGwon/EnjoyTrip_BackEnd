@@ -27,11 +27,10 @@
 		<h1>🚘커뮤니티🚘</h1>
 		<!-- 차후 디비에서 불러와서 가져올 예정 -->
 		<section>
-		
+
 			<c:forEach items="${list}" var="review">
-				<figure>
-					<img
-						src="${review.image}" />
+				<figure id="review${review.id}">
+					<img src="${review.image}" />
 					<div style="width: 90%; margin: auto">
 						<span>${review.title}</span><span>✍🏻${review.author}</span>
 					</div>

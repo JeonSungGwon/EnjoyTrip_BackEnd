@@ -51,7 +51,11 @@ public class CommunityController extends HttpServlet{
 		Community community = communityService.getCommunityById(id);
 		
 		JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("community", community);
+        jsonResponse.put("title", community.getTitle());
+        jsonResponse.put("addr", community.getAddr());
+        jsonResponse.put("author", community.getAuthor());
+        jsonResponse.put("image", community.getImage());
+        jsonResponse.put("content", community.getContent());
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write(jsonResponse.toString());

@@ -12,8 +12,9 @@ public class Community {
     public Community() {
     }
 
-    public Community(String title, String addr, String author, String image, String content) {
-        this.title = title;
+    public Community(int id, String title, String addr, String author, String image, String content) {
+        this.id = id;
+    	this.title = title;
         this.addr = addr;
         this.author = author;
         this.image = image;

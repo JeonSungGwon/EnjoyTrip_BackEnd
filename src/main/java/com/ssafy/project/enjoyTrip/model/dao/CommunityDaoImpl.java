@@ -95,10 +95,11 @@ public class CommunityDaoImpl implements CommunityDao {
 			sql.append("from community ");
 			sql.append("where id = ? ");
 			pstmt = con.prepareStatement(sql.toString());
-			pstmt.setInt(id, id);
+			pstmt.setInt(1, id);
+			
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				return new Community(rs.getString("title"), rs.getString("addr"), rs.getString("author"),
+				return new Community(Integer.parseInt(rs.getString("id")), rs.getString("title"), rs.getString("addr"), rs.getString("author"),
 						rs.getString("image"), rs.getString("content"));
 			}
 			return null;
@@ -120,7 +121,7 @@ public class CommunityDaoImpl implements CommunityDao {
 			pstmt = con.prepareStatement(sql.toString());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				list.add(new Community(rs.getString("title"), rs.getString("addr"), rs.getString("author"),
+				list.add(new Community(Integer.parseInt(rs.getString("id")), rs.getString("title"), rs.getString("addr"), rs.getString("author"),
 						rs.getString("image"), rs.getString("content")));
 			}
 			return list;

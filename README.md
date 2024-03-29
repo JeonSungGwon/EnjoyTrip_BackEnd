@@ -1,93 +1,141 @@
-# EnjoyTrip_BackEnd_대전_7반_백하람_전성권
+# [백엔드 관통 10조] ✈️ Enjoy Trip!
+바쁘고 지친 하루 하루, 아무런 걱정없이 여행을 떠나보세요.
 
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# 🎄 폴더 구조
+```
+enjoytrip_backend/
+├── .git/
+├── .vscode/
+├── assets/
+│  ├── css/
+│  │  ├── index.css
+│  │  ├── main.css
+│  │  ├── mypage.css
+│  │  └── sign.css
+│  └── images/
+│     ├── readme/
+│     ├── back.svg
+│     ├── background.png
+│     ├── empty_star.svg
+│     ├── full_star.svg
+│     ├── logo.svg
+│     ├── noimage.svg
+│     ├── search.svg
+│     ├── user.svg
+│     └── user_white.svg
+├── data/
+│  ├── reviewData.js
+│  └── tripData.js
+├── src/
+│  ├── js/
+│  │  ├── component.js
+│  │  ├── kakao.js
+│  │  ├── main.js
+│  │  ├── mypage.js
+│  │  ├── service.js
+│  │  └── sign.js
+│  ├── pages/
+│  │  ├── mainPage.html
+│  │  ├── myPage.html
+│  │  └── signPage.html
+│  └── index.html
+└── README.md
 
 ```
-cd existing_repo
-git remote add origin https://lab.ssafy.com/jeonsg9904/enjoytrip_backend.git
-git branch -M master
-git push -uf origin master
-```
 
-## Integrate with your tools
+# 📺 화면 구성
+1. 로그인 & 회원가입 
+   - 로그인 또는 회원가입을 할 수 있는 페이지
+    - 로그인을 시도 했을 때 가입되지 않은 회원이라면 회원가입 페이지로 이동
+    - 회원 가입을 완료하면 자동으로 로그인 화면으로 전환 됨
+<br />
 
-- [ ] [Set up project integrations](https://lab.ssafy.com/jeonsg9904/enjoytrip_backend/-/settings/integrations)
+2. 메인페이지
+    - 지도를 기반으로 내가 검색한 여행지 정보를 알 수 있는 페이지
+    - 지도의 가장 첫 좌표는 우리 대전 싸피 교육장 ㅎㅎ (삼성 화재 유성캠퍼스)
+    - 지역, 키워드 기반 검색 가능, 지역은 대분류와 소분류가 있는데 대분류는 필수지만 소분류는 없어도 검색 가능(ex. 대구 - null - 카페 검색 가능)
+    - 검색 결과는 지도의 좌표와 지도 아래 부분에 카드 형태로 뜨고, 카드를 클릭하면 해당 장소로 지도가 이동함 + 카드를 호버하면 여행지 제목과 장소를 미리 볼 수 있다!
+    - 빈 별 아이콘을 누르면 꽉 찬 별로 변경되고, 지도에서도 즐겨찾기가 표시 됨
+  
+<br />
 
-## Collaborate with your team
+3. 마이페이지
+   - 프로필을 관리하고 즐겨찾기 한 여행지를 볼 수 있어서 여행 계획을 세울 수 있는 페이지
+   - 즐겨찾기 한 여행지가 뜸
+   - 마이페이지에서 즐겨찾기를 해제할 수 있다
+   - 프로필 사진을 변경할 수 있다 (=> 헤더에도 똑같이 적용됨) ??
+   - 로그아웃, 회원 탈퇴 기능
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+<br />
 
-## Test and Deploy
+4. 공통
+   - 헤더를 통해 웹 사이트에서 이용할 수 있는 메뉴들을 표현
+     - 헤더의 로고를 클릭하면 메인 페이지로 이동
+     - 헤더의 프로필 부분을 클릭하면 마이 페이지로 이동
+   - 푸터의 "SSAFY" 부분을 클릭하면 싸피 홈페이지가 새 창에 뜸
+   - ContactUs를 클릭하면 개발자의 정보가 담긴 모달창이 뜸
 
-Use the built-in continuous integration in GitLab.
+<br />
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+# 🖥️ 화면 캡쳐
+## 1. 로그인 & 회원가입 
+   #### 로그인 또는 회원가입을 할 수 있는 페이지
+![로그인 화면](./assets/images/readme/image.png)
+![회원가입 화면](./assets/images/readme/image-2.png)
+   #### 로그인을 시도 했을 때 가입되지 않은 회원이라면 회원가입 페이지로 이동
+  !["회원 정보가 없습니다! 회원 가입 하시겠어요?" alert 창](./assets/images/readme/image-1.png)
+  여기서 확인을 누르면 회원가입 화면이 뜸.
+  #### 회원 가입을 완료하면 자동으로 로그인 화면으로 전환 됨
+  !["회원가입이 완료 되었습니다" aler창](./assets/images/readme/image-3.png)
+  여기서 확인을 누르면 자동으로 로그인 화면이 뜸.
 
-***
+<br />
 
-# Editing this README
+## 2. 메인페이지
+  #### 지도를 기반으로 내가 검색한 여행지 정보를 알 수 있는 페이지
+  *지도의 가장 첫 좌표는 우리 대전 싸피 교육장 ㅎㅎ (삼성 화재 유성캠퍼스)
+  ![alt text](./assets/images/readme/image-7.png)
+  #### 지역, 키워드 기반 검색 가능, 지역은 대분류와 소분류가 있는데 대분류는 필수지만 소분류는 없어도 검색 가능(ex. 대구 - null - 카페 검색 가능)
+  ![alt text](./assets/images/readme/image-8.png)
+  당연히 대분류 - 소분류 - 키워드 모두 있어도 검색할 수 있음!
+  ![alt text](./assets/images/readme/image-12.png)
+  #### 검색 결과는 지도의 좌표와 지도 아래 부분에 카드 형태로 뜨고, 카드를 클릭하면 해당 장소로 지도가 이동함
+  ![alt text](./assets/images/readme/image-11.png)
+  ![alt text](./assets/images/readme/image-9.png)
+  ![alt text](./assets/images/readme/image-10.png) 
+  +카드를 hover하면 여행지의 제목과 장소를 알려준다!
+  #### 빈 별 아이콘을 누르면 꽉 찬 별로 변경되고, 지도에서도 즐겨찾기가 표시 됨
+  ![alt text](./assets/images/readme/image-13.png)
+  ![alt text](./assets/images/readme/image-14.png)
+  (취소도 가능)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+<br />
 
-## Suggestions for a good README
+## 3. 마이페이지
+  #### 프로필을 관리하고 즐겨찾기 한 여행지를 볼 수 있어서 여행 계획을 세울 수 있는 페이지
+  ![alt text](./assets/images/readme/image-15.png)
+  #### 즐겨찾기 한 여행지가 뜸
+  ![alt text](./assets/images/readme/image-16.png)
+  내가 즐겨찾기 표시했던 여행지들 (똑같이 hover시 제목과 장소를 볼 수 있다.)
+  #### 마이페이지에서 즐겨찾기를 해제할 수 있다
+  ![alt text](./assets/images/readme/image-17.png)
+  별 아이콘을 누르면 즐겨찾기가 해제되어 없어진다.
+  #### 로그아웃, 회원 탈퇴 기능
+  ![alt text](./assets/images/readme/image-20.png)
+  로그아웃 되면 로그인 페이지로 자동으로 이동한다.
+  ![alt text](./assets/images/readme/image-21.png)
+  회원탈퇴를 누르면 확인 창이 뜬다, 확인을 누르면 회원 탈퇴가 진행되고 로그인 페이지로 이동한다.
+  ![alt text](./assets/images/readme/image-22.png)
+  같은 아이디로 로그인을 시도 했을 때, 회원 정보가 없다고 표시하는 것을 볼 수 있다! 
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+<br />
 
-## Name
-Choose a self-explaining name for your project.
+## 4. 공통
+  #### 헤더를 통해 웹 사이트에서 이용할 수 있는 메뉴들을 표현
+     - 헤더의 로고를 클릭하면 메인 페이지로 이동
+     - 헤더의 프로필 부분을 클릭하면 마이 페이지로 이동
+  #### - 푸터의 "SSAFY" 부분을 클릭하면 싸피 홈페이지가 새 창에 뜸
+  #### - ContactUs를 클릭하면 개발자의 정보가 담긴 모달창이 뜸
+  ![alt text](./assets/images/readme/image-23.png)
+  많관부🤍
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.

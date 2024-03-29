@@ -3,43 +3,89 @@
 
 # 🎄 폴더 구조
 ```
-enjoytrip_backend/
-├── .git/
-├── .vscode/
-├── assets/
-│  ├── css/
-│  │  ├── index.css
-│  │  ├── main.css
-│  │  ├── mypage.css
-│  │  └── sign.css
-│  └── images/
-│     ├── readme/
-│     ├── back.svg
-│     ├── background.png
-│     ├── empty_star.svg
-│     ├── full_star.svg
-│     ├── logo.svg
-│     ├── noimage.svg
-│     ├── search.svg
-│     ├── user.svg
-│     └── user_white.svg
-├── data/
-│  ├── reviewData.js
-│  └── tripData.js
-├── src/
-│  ├── js/
-│  │  ├── component.js
-│  │  ├── kakao.js
-│  │  ├── main.js
-│  │  ├── mypage.js
-│  │  ├── service.js
-│  │  └── sign.js
-│  ├── pages/
-│  │  ├── mainPage.html
-│  │  ├── myPage.html
-│  │  └── signPage.html
-│  └── index.html
-└── README.md
+📦main
+ ┣ 📂java
+ ┃ ┗ 📂com
+ ┃ ┃ ┗ 📂ssafy
+ ┃ ┃ ┃ ┗ 📂project
+ ┃ ┃ ┃ ┃ ┗ 📂enjoyTrip
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂controller
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommunityController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FavoriteController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MapController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MemberController.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂model
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂dao
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommunityDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommunityDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FavoriteDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FavoriteDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MemberDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂map
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂dao
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AttractionInfoDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AttractionInfoDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GugunDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GugunDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SidoDao.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SidoDaoImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AttractionInfoService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AttractionInfoServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GugunService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GugunServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SidoService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SidoServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AttractionInfo.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Gugun.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Sido.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommunityService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommunityServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FavoriteService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FavoriteServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MemberServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Community.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Favorite.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Member.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂util
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜DBUtil.java
+ ┗ 📂webapp
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📜footer.jsp
+ ┃ ┃ ┣ 📜header.jsp
+ ┃ ┃ ┗ 📜modal.jsp
+ ┃ ┣ 📂META-INF
+ ┃ ┃ ┗ 📜MANIFEST.MF
+ ┃ ┣ 📂resources
+ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┃ ┣ 📜community.css
+ ┃ ┃ ┃ ┣ 📜index.css
+ ┃ ┃ ┃ ┣ 📜login.css
+ ┃ ┃ ┃ ┣ 📜mainpage.css
+ ┃ ┃ ┃ ┣ 📜mypage.css
+ ┃ ┃ ┃ ┗ 📜signup.css
+ ┃ ┃ ┣ 📂images
+ ┃ ┃ ┃ ┣ 📜background.png
+ ┃ ┃ ┃ ┣ 📜empty_star.svg
+ ┃ ┃ ┃ ┣ 📜full_star.svg
+ ┃ ┃ ┃ ┣ 📜logo.svg
+ ┃ ┃ ┃ ┗ 📜noimage.png
+ ┃ ┃ ┗ 📂js
+ ┃ ┃ ┃ ┣ 📜community.js
+ ┃ ┃ ┃ ┣ 📜components.js
+ ┃ ┃ ┃ ┣ 📜kakaomap.js
+ ┃ ┃ ┃ ┣ 📜mainpage.js
+ ┃ ┃ ┃ ┣ 📜mypage.js
+ ┃ ┃ ┃ ┗ 📜signpage.js
+ ┃ ┣ 📜community.jsp
+ ┃ ┣ 📜index.jsp
+ ┃ ┣ 📜main.jsp
+ ┃ ┣ 📜mypage.jsp
+ ┃ ┣ 📜signup.jsp
+ ┃ ┗ 📜test.jsp
 
 ```
 
@@ -112,21 +158,33 @@ enjoytrip_backend/
   ![alt text](./images/image-15.png)
   #### 즐겨찾기 한 여행지가 뜸
   ![alt text](./images/image-16.png)
+  
   내가 즐겨찾기 표시했던 여행지들 (똑같이 hover시 제목과 장소를 볼 수 있다.)
   #### 마이페이지에서 즐겨찾기를 해제할 수 있다
   ![alt text](images/image-17.png)
+
   별 아이콘을 누르면 즐겨찾기가 해제되어 없어진다.
   #### 로그아웃, 회원 탈퇴 기능
+  ![alt text](images/image-85.png)
+  
   ![alt text](images/image-79.png)
+
   회원탈퇴를 누르면 비밀번호 입력 모달 창이 뜨고 확인을 누르면 회원탈퇴가 된 후 로그인 페이지로 이동한다.
   ![alt text](images/image-78.png)
+
   비밀번호가 틀리면 메시지를 준다.
   
-
+## 4. 커뮤니티
+   #### 여행지에 대한 리뷰를 작성하고 후기를 볼 수 있는 페이지
+   ![alt text](./images/image-80.png)
+   #### 마이페이지 즐겨찾기 목록에서 후기를 작성할 수 있다
+   ![alt text](./images/image-82.png)
+   #### 리뷰를 클릭하면 상세 글을 볼 수 있다
+   ![alt text](./images/image-81.png)
 
 <br />
 
-## 4. 공통
+## 5. 공통
   #### 헤더를 통해 웹 사이트에서 이용할 수 있는 메뉴들을 표현
      - 헤더의 로고를 클릭하면 메인 페이지로 이동
      - 헤더의 프로필 부분을 클릭하면 마이 페이지로 이동

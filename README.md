@@ -117,8 +117,6 @@ enjoytrip_backend/
   ![alt text](images/image-17.png)
   별 아이콘을 누르면 즐겨찾기가 해제되어 없어진다.
   #### 로그아웃, 회원 탈퇴 기능
-  ![alt text](./images/image-20.png)
-  로그아웃 되면 로그인 페이지로 자동으로 이동한다.
   ![alt text](images/image-79.png)
   회원탈퇴를 누르면 비밀번호 입력 모달 창이 뜨고 확인을 누르면 회원탈퇴가 된 후 로그인 페이지로 이동한다.
   ![alt text](images/image-78.png)

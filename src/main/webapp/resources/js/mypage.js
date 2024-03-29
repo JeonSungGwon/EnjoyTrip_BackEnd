@@ -1,4 +1,5 @@
 import { FavoriteCard, setCardWidthHeight } from "./components.js";
+
 const myPage = async (app) => {
 	const memberNo = app.getElementsByClassName("profile")[0].id.split("profile")[1];
 	const nickname = app.getElementsByClassName("profile")[0].getElementsByTagName("p")[0].innerText;;
@@ -144,8 +145,10 @@ const myPage = async (app) => {
 
 	const openReviewModal = (store) => {
 		let modalHtml = `
-			<form id="registForm" method="post">
+			<form id="registForm" method="post">				
+				<input type="hidden" name="addr" value="${store.title}" />
 				<input type="hidden" name="author" value="${nickname}" />
+				<input type="hidden" name="image" value="${store.image}" />
 				<div class="review-title">
 					<label for="title">제목: </label>
 		  			<input id="title" name="title" />
@@ -158,26 +161,17 @@ const myPage = async (app) => {
 		app.getElementById("modalBackground").style.display = "flex";
 		app.getElementById("modal").innerHTML += modalHtml;
 		app.getElementById("modalTitle").innerText = `${store.title}`;
-
-		// 닫기
+		
 		app.getElementById("modalClose").addEventListener("click", (e) => {
 			e.preventDefault();
-			const modal = app.getElementById("modalBackground");
-			modal.style.display = "none";
-			app.getElementById("modal").innerHTML = `
-    			<div class="modal-top">
-					<h2 class="modal-title" id="modalTitle"></h2>
-					<span class="material-symbols-outlined" id="modalClose">close</span>
-				</div>		
-    		`;
+			closeModal();
 		});
 
 		// 리뷰 저장
-		document.getElementById("registReview").addEventListener("click", () => {
-			console.log("리뷰가 등록 되었습니다@");
+		app.getElementById("registReview").addEventListener("click", () => {
+			console.log("리뷰 등록!");
 			const registFormValues = $('#registForm').serialize();
-			//new ajax('post', true, 'community?action=regist', registFormValues, "리뷰가 등록 되었습니다!");
-			
+
 			$.ajax({
 				type: 'post',
 				async: true,
@@ -185,18 +179,32 @@ const myPage = async (app) => {
 				data: registFormValues,
 				dataType: 'json',
 				success: function(json) {
-					if (json.success) alert("리뷰가 등록 되었습니다!");
+					if (json.success) {
+						alert("리뷰가 등록 되었습니다!");
+						closeModal();
+					}
 				},
 				error: function(xhr, status, error) {
-					//오류 발생 시 처리
-					//alert(error);
+					alert(error);
 				},
 				complete: function(data, textStatus) {
 					//작업 완료 후 처리
 				}
 			});
-			
+
 		})
+	}
+
+	const closeModal = () => {
+		// 닫기
+		const modal = app.getElementById("modalBackground");
+		modal.style.display = "none";
+		app.getElementById("modal").innerHTML = `
+				<div class="modal-top">
+					<h2 class="modal-title" id="modalTitle"></h2>
+					<span class="material-symbols-outlined" id="modalClose">close</span>
+				</div>		
+    		`;
 	}
 };
 

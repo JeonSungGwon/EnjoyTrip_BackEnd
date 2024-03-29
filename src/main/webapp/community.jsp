@@ -31,7 +31,7 @@
 			<c:forEach items="${list}" var="review">
 				<figure>
 					<img
-						src="${review.image ? review.image : "resources/images/noimage.png"}" />
+						src="${review.image}" />
 					<div style="width: 90%; margin: auto">
 						<span>${review.title}</span><span>✍🏻${review.author}</span>
 					</div>

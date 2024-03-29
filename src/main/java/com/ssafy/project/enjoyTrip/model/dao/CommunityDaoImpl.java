@@ -10,12 +10,15 @@ import com.ssafy.project.enjoyTrip.model.Community;
 import com.ssafy.project.enjoyTrip.model.Favorite;
 import com.ssafy.project.enjoyTrip.util.DBUtil;
 
-public class CommunityDaoImpl implements CommunityDao{
+public class CommunityDaoImpl implements CommunityDao {
 	private static CommunityDao communityDao;
-	
-	private CommunityDaoImpl() {}
+
+	private CommunityDaoImpl() {
+	}
+
 	public static CommunityDao getCommunityDao() {
-		if(communityDao == null) communityDao = new CommunityDaoImpl();
+		if (communityDao == null)
+			communityDao = new CommunityDaoImpl();
 		return communityDao;
 	}
 
@@ -26,15 +29,16 @@ public class CommunityDaoImpl implements CommunityDao{
 		try {
 			con = DBUtil.getConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("insert into community(title, author, image, content) ");
-			sql.append("values (?, ?, ?, ?) ");
+			sql.append("insert into community(title, addr, author, image, content) ");
+			sql.append("values (?, ?, ?, ?, ?) ");
 			pstmt = con.prepareStatement(sql.toString());
 			int index = 0;
 			pstmt.setString(++index, community.getTitle());
+			pstmt.setString(++index, community.getAddr());
 			pstmt.setString(++index, community.getAuthor());
 			pstmt.setString(++index, community.getImage());
 			pstmt.setString(++index, community.getContent());
-			
+
 			return pstmt.executeUpdate();
 		} finally {
 			DBUtil.close(con, pstmt);
@@ -94,8 +98,8 @@ public class CommunityDaoImpl implements CommunityDao{
 			pstmt.setInt(id, id);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				return new Community(rs.getString("title"),
-						rs.getString("author"), rs.getString("image"), rs.getString("content"));
+				return new Community(rs.getString("title"), rs.getString("addr"), rs.getString("author"),
+						rs.getString("image"), rs.getString("content"));
 			}
 			return null;
 		} finally {
@@ -104,7 +108,7 @@ public class CommunityDaoImpl implements CommunityDao{
 	}
 
 	@Override
-	public List<Community> getAllCommunities() throws Exception{
+	public List<Community> getAllCommunities() throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		List<Community> list = new ArrayList<>();
@@ -116,8 +120,8 @@ public class CommunityDaoImpl implements CommunityDao{
 			pstmt = con.prepareStatement(sql.toString());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				list.add(new Community(rs.getString("title"),
-						rs.getString("author"), rs.getString("image"), rs.getString("content")));
+				list.add(new Community(rs.getString("title"), rs.getString("addr"), rs.getString("author"),
+						rs.getString("image"), rs.getString("content")));
 			}
 			return list;
 		} finally {

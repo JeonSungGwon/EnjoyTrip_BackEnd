@@ -3,6 +3,7 @@ package com.ssafy.project.enjoyTrip.model;
 public class Community {
     private int id;
     private String title;
+    private String addr;
     private String author;
     private String image;
     private String content;
@@ -11,8 +12,9 @@ public class Community {
     public Community() {
     }
 
-    public Community(String title, String author, String image, String content) {
+    public Community(String title, String addr, String author, String image, String content) {
         this.title = title;
+        this.addr = addr;
         this.author = author;
         this.image = image;
         this.content = content;
@@ -58,6 +60,14 @@ public class Community {
     public void setContent(String content) {
         this.content = content;
     }
+    
+    public String getAddr() {
+    	return addr;
+    }
+    
+    public void setAddr(String addr) {
+    	this.addr = addr;
+    }
 
     // toString 메서드 (디버깅 및 테스트용)
     @Override
@@ -65,6 +75,7 @@ public class Community {
         return "Community{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", addr='" + addr + '\'' +
                 ", author='" + author + '\'' +
                 ", image='" + image + '\'' +
                 ", content='" + content + '\'' +

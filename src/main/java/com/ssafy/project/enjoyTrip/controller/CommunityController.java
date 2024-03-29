@@ -60,6 +60,7 @@ public class CommunityController extends HttpServlet{
 	private void registCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 		Community community = new Community();
 		community.setTitle(req.getParameter("title"));
+		community.setAddr(req.getParameter("addr"));
 		community.setAuthor(req.getParameter("author"));
 		community.setImage(req.getParameter("image"));
 		community.setContent(req.getParameter("content"));

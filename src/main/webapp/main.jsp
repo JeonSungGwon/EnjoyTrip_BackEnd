@@ -34,7 +34,7 @@
 		<section>
 			<form class="search" id="search" action="post">
 				<div class="selects" id="selects">
-					<span>어디로 여행 가시나요?</span> <select name="location" id="location">
+					<span>어디로 갈건데?</span> <select name="location" id="location">
 						<option value="">시, 도를 선택하세요.</option>
 						<c:forEach var="sido" items="${sidoList}">
 							<option value="${sido.sidoCode}">${sido.sidoName}</option>

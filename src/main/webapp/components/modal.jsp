@@ -23,6 +23,8 @@
 	padding: 1.2rem;
 	overflow-y: auto;
 	border-radius: 15px;
+	min-width: 40%;
+	box-shadow: 5px 5px 5px #000;
 }
 
 .modal-top {

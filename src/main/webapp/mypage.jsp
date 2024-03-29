@@ -37,7 +37,31 @@
 	margin: 15% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 80%;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.logout-modal input {
+	padding: 1rem;
+	border: #aaa solid 1.5px;
+	border-radius: 0.5rem;
+	margin: 1rem 0;
+	outline: none;
+	font-size: 16px;
+}
+
+.logout-modal button {
+	background-color: #32a852;
+	padding: 1rem;
+	cursor: pointer;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	outline: none;
+	border: none;
+	border-radius: 0.5rem;
 }
 
 .close {

@@ -5,6 +5,7 @@ const communityPage = (app) => {
 		let reviewId = reviewCard.id.split("review")[1];
 		reviewCard.addEventListener("click", () => {
 			let reivewData = {
+				id: "",
 				title: "",
 				addr: "",
 				author: "",
@@ -17,6 +18,7 @@ const communityPage = (app) => {
 				dataType: 'json',
 				success: function(json) {
 					reivewData = {
+						id: reviewId,
 						title: json.title,
 						addr: json.addr,
 						author: json.author,
@@ -43,16 +45,39 @@ const openModal = (data) => {
 				<span>📌${data.addr}</span>
 		  		<span>✍🏻 ${data.author}</span>			
 			</div>
-	  		<p>리뷰 내용</p>
-	  		<div style="border: #aaa solid 0.5px; margin-bottom: 1rem;">
+	  		<hr />
+	  		<div style="margin-bottom: 1rem;">
 		  		<p>${data.content}</p>	  		
 	  		</div>
-	  		<img src="${data.image}" />
+	  		<img src="${data.image}" style="border: #aaa solid 0.5px;" />
+	  		<span id="deleteReview">삭제하기</span>
 	    `;
 	document.getElementById("modalBackground").style.display = "flex";
 	document.getElementById("modal").innerHTML += modalHtml;
 	document.getElementById("modalTitle").innerText = `${data.title}`;
 
+	closeModal();
+
+	document.getElementById("deleteReview").addEventListener(("click"), () => {
+		$.ajax({
+			type: 'get',
+			url: 'community?action=remove&id=' + data.id,
+			dataType: 'json',
+			success: function(json) {
+				if(json.success) alert("리뷰가 삭제 되었습니다!");
+			},
+			error: function(xhr, status, error) {
+				alert(error);
+			},
+			complete: function() {
+				closeModal();
+				window.location.href = "community?action=list";
+			}
+		});
+	});
+}
+
+const closeModal = () => {
 	// 닫기
 	document.getElementById("modalClose").addEventListener("click", (e) => {
 		e.preventDefault();

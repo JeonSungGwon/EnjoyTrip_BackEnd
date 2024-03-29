@@ -17,14 +17,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/community")
-public class CommunityController extends HttpServlet{
+public class CommunityController extends HttpServlet {
 	CommunityService communityService = CommunityServiceImpl.getCommunityService();
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		
+
 		try {
-			switch(action) {
+			switch (action) {
 			case "list":
 				getAllCommunities(req, resp);
 				break;
@@ -38,10 +39,10 @@ public class CommunityController extends HttpServlet{
 				getCommunityById(req, resp);
 				break;
 			case "regist":
-				registCommunity(req,resp);
+				registCommunity(req, resp);
 				break;
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -49,19 +50,19 @@ public class CommunityController extends HttpServlet{
 	private void getCommunityById(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		int id = Integer.parseInt(req.getParameter("id"));
 		Community community = communityService.getCommunityById(id);
-		
+
 		JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("title", community.getTitle());
-        jsonResponse.put("addr", community.getAddr());
-        jsonResponse.put("author", community.getAuthor());
-        jsonResponse.put("image", community.getImage());
-        jsonResponse.put("content", community.getContent());
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(jsonResponse.toString());
+		jsonResponse.put("title", community.getTitle());
+		jsonResponse.put("addr", community.getAddr());
+		jsonResponse.put("author", community.getAuthor());
+		jsonResponse.put("image", community.getImage());
+		jsonResponse.put("content", community.getContent());
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(jsonResponse.toString());
 	}
 
-	private void registCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	private void registCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		Community community = new Community();
 		community.setTitle(req.getParameter("title"));
 		community.setAddr(req.getParameter("addr"));
@@ -69,26 +70,28 @@ public class CommunityController extends HttpServlet{
 		community.setImage(req.getParameter("image"));
 		community.setContent(req.getParameter("content"));
 		boolean success = communityService.registCommunity(community) >= 1 ? true : false;
-		
+
 		JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("success", success);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(jsonResponse.toString());
+		jsonResponse.put("success", success);
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(jsonResponse.toString());
 	}
 
-	private void removeCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	private void removeCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		int id = Integer.parseInt(req.getParameter("id"));
 		boolean success = communityService.removeCommunity(id) >= 1 ? true : false;
-        
+
 		JSONObject jsonResponse = new JSONObject();
-        jsonResponse.put("success", success);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(jsonResponse.toString());
+		jsonResponse.put("success", success);
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(jsonResponse.toString());
+
+		//req.getRequestDispatcher("/community.jsp").forward(req, resp);
 	}
 
-	private void editCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	private void editCommunity(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		Community community = new Community();
 		community.setTitle(req.getParameter("title"));
 		community.setAuthor(req.getParameter("author"));
@@ -97,15 +100,15 @@ public class CommunityController extends HttpServlet{
 		communityService.editCommunity(community);
 	}
 
-	private void getAllCommunities(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	private void getAllCommunities(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		List<Community> list = communityService.getAllCommunities();
-        //JSONObject jsonResponse = new JSONObject();
-        //jsonResponse.put("list", list);
-        //resp.setContentType("application/json");
-        //resp.setCharacterEncoding("UTF-8");
-        //resp.getWriter().write(jsonResponse.toString());
+		// JSONObject jsonResponse = new JSONObject();
+		// jsonResponse.put("list", list);
+		// resp.setContentType("application/json");
+		// resp.setCharacterEncoding("UTF-8");
+		// resp.getWriter().write(jsonResponse.toString());
 		req.setAttribute("list", list);
 
 		req.getRequestDispatcher("/community.jsp").forward(req, resp);
-	}	
+	}
 }

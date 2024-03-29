@@ -87,7 +87,7 @@ const mainPage = (app) => {
 				html += Card(
 					memberNo,
 					result.contentId,
-					result.firstImage ? result.firstImage : "",
+					result.firstImage ? result.firstImage : "resources/images/noimage.png",
 					result.title.split("(")[0],
 					result.addr1.split(" ")[0] + " " + result.addr1.split(" ")[1],
 					"18%",

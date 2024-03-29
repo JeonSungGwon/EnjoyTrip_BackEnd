@@ -82,7 +82,7 @@ const myPage = async (app) => {
 		});
 
 		app.getElementById(`card${favorite.contentId}`).addEventListener("dblclick", () => {
-			openModal(favorite);
+			openReviewModal(favorite);
 		});
 	});
 
@@ -101,7 +101,7 @@ const myPage = async (app) => {
 				imageSrc = e.target.result;
 				profileImage.src = imageSrc; // 프로필 이미지 업데이트
 			};
-
+//
 			let editForm = app.getElementById("profileEdit");
 			let formData = new FormData(editForm);
 			formData.append("profileImage", imageSrc);
@@ -138,7 +138,7 @@ const myPage = async (app) => {
 
 	leaveButton.addEventListener("click", () => { });
 
-	const openModal = (store) => {
+	const openReviewModal = (store) => {
 		let modalHtml = `
 			<form action="community">
 				<input type="hidden" name="action" value="regist" />

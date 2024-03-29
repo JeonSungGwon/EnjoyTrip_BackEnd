@@ -123,7 +123,7 @@ form {
 	outline: none;
 }
 
-.modal button {
+.modal .regist-review {
 	background-color: #4e71a7;
 	color: #fff;
 	border: none;
@@ -131,4 +131,6 @@ form {
 	padding: 1rem;
 	border-radius: 2rem;
 	font-size: 2rem;
+	text-align: center;
+	cursor: pointer;
 }

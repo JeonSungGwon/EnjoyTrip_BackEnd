@@ -33,6 +33,7 @@ figure span {
 
 figure>div>span:first-child {
 	font-size: 1rem;
+	font-weight: bold;
 	width: 70%;
 }
 

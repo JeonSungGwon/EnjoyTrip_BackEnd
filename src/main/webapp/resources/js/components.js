@@ -20,7 +20,7 @@ export const Card = (memberNo, id, image, title, addr, width, isFavorite) => {
         </form>
     `;
 }
-export function Card2(id, image, title, addr, width) {
+export function FavoriteCard(id, image, title, addr, width) {
   return `
     <div style="width: ${width}; background-image: url(${image});" id="card${id}" class="card" >
         <div class="hover">
@@ -30,8 +30,6 @@ export function Card2(id, image, title, addr, width) {
                 <p style="font-size: 16px;">${addr}</p>
             </div>
         </div>
-    <!-- 추가할 내용이 있을 수 있으므로(별 같은거) div 닫지 않음 -->
-    
     `;
 }
 

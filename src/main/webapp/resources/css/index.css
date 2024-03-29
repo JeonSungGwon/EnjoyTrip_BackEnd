@@ -105,7 +105,6 @@ nav a {
     position: relative;
     border-radius: 1rem;
     background-size: cover;
-    height: 200px;
     margin-bottom: 50px;
     border: #bbb solid 0.5px;
     text-overflow: ellipsis;

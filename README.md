@@ -130,6 +130,7 @@
 ![회원가입 화면](./images/image-2.png)
    #### 로그인을 시도 했을 때 가입되지 않은 회원이라면 회원가입 페이지로 이동
   !["회원 정보가 없습니다! 회원 가입 하시겠어요?" alert 창](./images/image-77.png)
+
   여기서 확인을 누르면 회원가입 화면이 뜸.
 <br />
 
@@ -139,12 +140,15 @@
   ![alt text](./images/image-7.png)
   #### 지역, 키워드 기반 검색 가능, 지역은 대분류와 소분류가 있는데 대분류는 필수지만 소분류는 없어도 검색 가능(ex. 대구 - null - 카페 검색 가능)
   ![alt text](./images/image-8.png)
+
   당연히 대분류 - 소분류 - 키워드 모두 있어도 검색할 수 있음!
+
   ![alt text](./images/image-12.png)
   #### 검색 결과는 지도의 좌표와 지도 아래 부분에 카드 형태로 뜨고, 카드를 클릭하면 해당 장소로 지도가 이동함
   ![alt text](./images/image-11.png)
   ![alt text](./images/image-9.png)
   ![alt text](./images/image-10.png) 
+  
   +카드를 hover하면 여행지의 제목과 장소를 알려준다!
   #### 빈 별 아이콘을 누르면 꽉 찬 별로 변경되고, 지도에서도 즐겨찾기가 표시 됨
   ![alt text](./images/image-13.png)

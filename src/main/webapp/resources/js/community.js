@@ -39,7 +39,7 @@ const communityPage = (app) => {
 }
 
 const openModal = (data) => {
-	console.log(data);
+	//console.log(data);
 	let modalHtml = `
 			<div class="modal-info">
 				<span>📌${data.addr}</span>
@@ -50,7 +50,7 @@ const openModal = (data) => {
 		  		<p>${data.content}</p>	  		
 	  		</div>
 	  		<img src="${data.image}" style="border: #aaa solid 0.5px;" />
-	  		<span id="deleteReview">삭제하기</span>
+	  		<span id="deleteReview" class="material-symbols-outlined">delete</span>
 	    `;
 	document.getElementById("modalBackground").style.display = "flex";
 	document.getElementById("modal").innerHTML += modalHtml;
@@ -64,7 +64,7 @@ const openModal = (data) => {
 			url: 'community?action=remove&id=' + data.id,
 			dataType: 'json',
 			success: function(json) {
-				if(json.success) alert("리뷰가 삭제 되었습니다!");
+				if (json.success) alert("리뷰가 삭제 되었습니다!");
 			},
 			error: function(xhr, status, error) {
 				alert(error);

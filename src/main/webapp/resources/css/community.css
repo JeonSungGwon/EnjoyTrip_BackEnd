@@ -12,10 +12,11 @@ section {
 
 figure {
 	width: 20vw;
-	border-radius: 10%;
+	height: 20vw; border-radius : 10%;
 	border: #aaa solid 0.5px;
 	padding-bottom: 0.6rem;
 	cursor: pointer;
+	border-radius: 10%;
 }
 
 form {
@@ -52,4 +53,8 @@ figure>div>span:last-child {
 	margin: 1rem 0;
 	display: flex;
 	justify-content: space-between;
+}
+
+.modal img {
+	min-width: 50%;
 }

@@ -83,12 +83,8 @@ enjoytrip_backend/
 ![로그인 화면](./images/image.png)
 ![회원가입 화면](./images/image-2.png)
    #### 로그인을 시도 했을 때 가입되지 않은 회원이라면 회원가입 페이지로 이동
-  !["회원 정보가 없습니다! 회원 가입 하시겠어요?" alert 창](./images/image-1.png)
+  !["회원 정보가 없습니다! 회원 가입 하시겠어요?" alert 창](./images/image-77.png)
   여기서 확인을 누르면 회원가입 화면이 뜸.
-  #### 회원 가입을 완료하면 자동으로 로그인 화면으로 전환 됨
-  !["회원가입이 완료 되었습니다" aler창](./images/image-3.png)
-  여기서 확인을 누르면 자동으로 로그인 화면이 뜸.
-
 <br />
 
 ## 2. 메인페이지
@@ -123,10 +119,12 @@ enjoytrip_backend/
   #### 로그아웃, 회원 탈퇴 기능
   ![alt text](./images/image-20.png)
   로그아웃 되면 로그인 페이지로 자동으로 이동한다.
-  ![alt text](images/image-21.png)
-  회원탈퇴를 누르면 확인 창이 뜬다, 확인을 누르면 회원 탈퇴가 진행되고 로그인 페이지로 이동한다.
-  ![alt text](./images/image-22.png)
-  같은 아이디로 로그인을 시도 했을 때, 회원 정보가 없다고 표시하는 것을 볼 수 있다! 
+  ![alt text](images/image-79.png)
+  회원탈퇴를 누르면 비밀번호 입력 모달 창이 뜨고 확인을 누르면 회원탈퇴가 된 후 로그인 페이지로 이동한다.
+  ![alt text](images/image-78.png)
+  비밀번호가 틀리면 메시지를 준다.
+  
+
 
 <br />
 
